@@ -33,26 +33,26 @@ const adminSchema = new mongoose.Schema({
 });
 
 adminSchema.statics.findbyCredentials = async (email, password) => {
-  const user = await adminS.findOne({ email: email });
+  const admin = await adminS.findOne({ email: email });
 
-  if (!user) {
-    throw "User not found";
+  if (!admin) {
+    throw "Admin not found";
   }
-  const isMatch = await bcrypt.compare(password, user.password);
+  const isMatch = await bcrypt.compare(password, admin.password);
 
   if (!isMatch) {
     throw "Invalid Password";
   }
-  return user;
+  return admin;
 };
 
 // pre for before and post for after
 
 adminSchema.pre("save", async function (next) {
   // this refers to individual
-  const user = this;
-  if (user.isModified("password")) {
-    user.password = await bcrypt.hash(user.password, 8);
+  const admin = this;
+  if (admin.isModified("password")) {
+    admin.password = await bcrypt.hash(admin.password, 8);
   }
   next();
 });

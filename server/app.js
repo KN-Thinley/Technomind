@@ -15,7 +15,9 @@ require("./database/mongoose");
 
 // routes
 const adminRouter = require("./route/adminRoute");
+const userRouter = require("./route/userRoute");
 
+app.use(userRouter);
 app.use(adminRouter);
 
 module.exports = app;
