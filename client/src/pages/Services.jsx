@@ -3,6 +3,10 @@ import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 
+import img1 from "./../assets/svg/undraw_online_learning_re_qw08.svg";
+import img2 from "./../assets/svg/undraw_data_trends_re_2cdy.svg";
+import img3 from "./../assets/svg/undraw_my_universe_803e.svg";
+
 const Services = () => {
   const section1Ref = useRef(null);
   const section2Ref = useRef(null);
@@ -10,7 +14,7 @@ const Services = () => {
 
   useEffect(() => {
     const observer1 = createObserver(section1Ref);
-    const observer2 = createObserver(section2Ref);
+    const observer2 = createObserver(section2Ref, 2);
     const observer3 = createObserver(section3Ref);
 
     return () => {
@@ -25,12 +29,18 @@ const Services = () => {
       }
     };
   }, []);
-  const createObserver = (ref) => {
+
+  const createObserver = (ref, index) => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add("slide-in-left");
+          if (index % 2 === 0) {
+            entry.target.classList.add("slide-in-right");
+          } else {
+            entry.target.classList.add("slide-in-left");
+          }
         } else {
+          entry.target.classList.remove("slide-in-right");
           entry.target.classList.remove("slide-in-left");
         }
       });
@@ -46,44 +56,53 @@ const Services = () => {
       <Navbar />
       {/* Hero Banner */}
       <div className="flex items-center justify-end w-screen h-screen heroBanner bg-[url('./assets/heroBanner.png')] bg-cover bg-no-repeat text-white	">
-        <div className="text-center mr-auto ml-40">
-          <div className="text-7xl animate-bottom">Services</div>
+        <div className="text-center mr-auto lg:ml-40 md:ml-20 ml-10">
+          <div className="text-7xl animate-bottom">BDS</div>
         </div>
       </div>
 
       {/* Section 1 */}
       <div className="flex items-center justify-end w-screen h-screen heroBanner bg-black bg-cover bg-no-repeat text-white">
-        <div className="text-center mr-auto lg:ml-40 ml-auto leading-loose">
+        <div className="text-center mr-auto lg:ml-40 ml-auto leading-loose relative">
           <div
             ref={section1Ref}
-            className="md:text-7xl text-5xl sectionTitleLeft"
+            className="w-full md:text-7xl text-5xl leading-loose sectionTitleLeft z-30 text-left"
           >
-            Find your Perfect Mentor!
+            What is BDS?
           </div>
         </div>
       </div>
+
       {/* Section 2 */}
       <div className="flex items-center justify-end w-screen h-screen heroBanner bg-black bg-cover bg-no-repeat text-white">
-        <div className="text-center mr-auto lg:ml-40 ml-auto leading-loose">
+        <div className="text-center ml-auto lg:mr-40 mr-auto leading-loose relative">
+          <div className="w-full imgContainer2 bg-slate-400	absolute z-10">
+            <img src={img2} className="absolute imgInside2 z-20" alt="" />
+          </div>
           <div
             ref={section2Ref}
-            className="md:text-7xl text-5xl sectionTitleLeft"
+            className="w-full md:text-7xl text-5xl leading-loose sectionTitleRight z-30 text-right"
           >
-            Find your Perfect Mentor!
+            Get in Touch with <br /> The Business Trends
           </div>
         </div>
       </div>
+
       {/* Section 3 */}
       <div className="flex items-center justify-end w-screen h-screen heroBanner bg-black bg-cover bg-no-repeat text-white">
-        <div className="text-center mr-auto lg:ml-40 ml-auto leading-loose">
+        <div className="text-center mr-auto lg:ml-40 ml-auto leading-loose relative">
           <div
             ref={section3Ref}
-            className="md:text-7xl text-5xl sectionTitleLeft"
+            className="w-full md:text-7xl text-5xl leading-loose sectionTitleLeft z-30 text-left"
           >
-            Find your Perfect Mentor!
+            Your Space to Shine!
+          </div>
+          <div className="w-full imgContainer3 bg-slate-400	absolute z-10">
+            <img src={img3} className="absolute imgInside3 z-20" alt="" />
           </div>
         </div>
       </div>
+
       {/* Footer */}
       <Footer />
     </>
