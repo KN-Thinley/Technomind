@@ -1,8 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { links } from "./MyLinks";
 
 const HamburgerMenu = () => {
+  const [expandedLinks, setExpandedLinks] = useState([]);
+
+  const toggleLinkExpansion = (linkName) => {
+    if (expandedLinks.includes(linkName)) {
+      setExpandedLinks(expandedLinks.filter((name) => name !== linkName));
+    } else {
+      setExpandedLinks([...expandedLinks, linkName]);
+    }
+  };
+
   useEffect(() => {
     const menuOnClick = () => {
       document.getElementById("menu-bar").classList.toggle("change");
@@ -28,36 +38,40 @@ const HamburgerMenu = () => {
           <div id="bar3" className="bar"></div>
         </div>
         <nav className="nav" id="nav">
-          <ul>
-            <div>
-              <Link to="/">Home</Link>
-            </div>
-
-            {links.map((link) => (
-              <div>
-                {link.name}
-                {link.submenu && (
-                  <div>
-                    <div className="absolute top-5 hidden group-hover:block hover:block">
-                      <div className="py-3">
-                        <div className="w-4 h-4 left-3 absolute mt-1 bg-white rotate-45"></div>
-                      </div>
-                      <div className="bg-white px-4 pr-12 py-4">
-                        {link.sublinks.map((mysublinks) => (
-                          <div>
-                            {mysublinks.sublink.map((slink) => (
-                              <li className="text-md text-gray-600 my-3 hover:text-primary">
-                                <Link to={slink.link}>{slink.name}</Link>
-                              </li>
-                            ))}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
+          <ul className=" mt-5">
+            <div className="text-2xl flex flex-col gap-5 mr-2">
+              <Link to="/" className="main-link">
+                Home
+              </Link>
+              {links.map((link) => (
+                <div key={link.name}>
+                  <div
+                    onClick={() => toggleLinkExpansion(link.name)}
+                    className="link"
+                  >
+                    {link.name}
                   </div>
-                )}
-              </div>
-            ))}
+                  {link.submenu && expandedLinks.includes(link.name) && (
+                    <div className="submenu mt-2">
+                      {link.sublinks.map((sublink) => (
+                        <div key={sublink.sublink[0].name}>
+                          {sublink.sublink.map((slink) => (
+                            <li
+                              key={slink.name}
+                              className="text-lg text-gray-600 mr-10 hover:text-primary sublink"
+                            >
+                              <Link to={slink.link} className="sublink-text">
+                                {slink.name}
+                              </Link>
+                            </li>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
           </ul>
         </nav>
       </div>

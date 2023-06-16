@@ -107,17 +107,13 @@
 }
 
 .nav ul {
-  padding: 0 22px;
 }
 
 .nav li {
   list-style: none;
-  padding: 12px 0;
 }
 
 .nav li a {
-  color: white;
-  font-size: 20px;
   text-decoration: none;
 }
 
@@ -155,7 +151,7 @@
 }
 
 .change #bar1 {
-  transform: translateX(50px) translateY(0px) rotateZ(-45deg);
+  transform: translateX(140px) translateY(0px) rotateZ(-45deg);
 }
 
 .change #bar2 {
@@ -163,7 +159,7 @@
 }
 
 .change #bar3 {
-  transform: translateX(50px) translateY(-10px) rotateZ(45deg);
+  transform: translateX(140px) translateY(-10px) rotateZ(45deg);
 }
 
 .change-bg {
@@ -195,5 +191,134 @@
     transform: translateX(0);
     opacity: 1;
     transition: ease;
+  }
+}
+
+/* Section Title */
+.sectionTitleRight {
+  transform: translateX(100%);
+}
+
+/* Home CSS animation delay */
+
+.slide-in-right {
+  animation: slideInRight 1s ease forwards;
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100%);
+    transition: ease;
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+    transition: ease;
+  }
+}
+
+/* Section 1 img */
+.imgContainer {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+
+  top: 0;
+  right: -50%;
+}
+
+.imgInside {
+  width: 150%;
+  max-width: 200%;
+  top: 0;
+  left: -50%;
+}
+
+/* Section 2 img */
+.imgContainer2 {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+
+  top: -20%;
+  left: -75%;
+}
+
+.imgInside2 {
+  width: 150%;
+  max-width: 200%;
+  top: 20%;
+  right: -50%;
+}
+
+/* Section 3 img */
+.imgContainer3 {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+
+  top: 0;
+  right: -80%;
+}
+
+.imgInside3 {
+  width: 150%;
+  max-width: 200%;
+  top: -10%;
+  left: -50%;
+}
+
+/* Reponsiveness */
+@media (max-width: 1440px) {
+  /* Section 1 img */
+  .imgContainer {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+
+    top: 0;
+    right: -30%;
+  }
+
+  .imgInside {
+    width: 150%;
+    max-width: 200%;
+    top: 0;
+    left: -50%;
+  }
+
+  /* Section 2 img */
+  .imgContainer2 {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+
+    top: -20%;
+    left: -75%;
+  }
+
+  .imgInside2 {
+    width: 150%;
+    max-width: 200%;
+    top: 20%;
+    right: -50%;
+  }
+
+  /* Section 3 img */
+  .imgContainer3 {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+
+    top: 0;
+    right: -80%;
+  }
+
+  .imgInside3 {
+    width: 150%;
+    max-width: 200%;
+    top: -10%;
+    left: -80%;
   }
 }

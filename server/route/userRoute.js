@@ -34,5 +34,6 @@ router.put(
 );
 router.get("/user/getMentors", controller.getMentorCounts);
 router.get("/user/getMentees", controller.getMenteeCounts);
+router.get("/user/matchmaking/:field", controller.mentorsToMentees);
 
 module.exports = router;
