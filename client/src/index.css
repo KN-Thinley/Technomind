@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* Corporate Colors */
+  --primary: rgb(17, 121, 171);
+  --secondary: rgb(17, 151, 205);
+  --complimentary: rgb(4, 92, 130);
+
+  /* Colors */
+  --blackSoft: rgb(81, 81, 81);
+  --black: rgba(0, 0, 0, 1);
+  --white: rgba(245, 245, 247, 1);
+  --pureWhite: rgba(255, 255, 255, 1);
+
+  /* Spacings */
+  --gapSize: 16px;
+}
+
 /* Navbar Delay Animations */
 
 .nav-link {
@@ -37,4 +53,147 @@
 
 .animate-left {
   animation: slideInLeft 2s ease forwards;
+}
+
+/* Heading */
+@keyframes slideInBottom {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-bottom {
+  animation: slideInBottom 2s ease forwards;
+}
+
+/* Hamburger Menu */
+
+#menu {
+  z-index: 2;
+}
+
+#menu-bar {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.bar {
+  height: 5px;
+  width: 100%;
+  background-color: var(--primary);
+  display: block;
+  border-radius: 5px;
+  transition: 0.3s ease;
+}
+
+#bar1 {
+  transform: translateY(-8px);
+}
+
+#bar3 {
+  transform: translateY(8px);
+}
+
+.nav {
+  transition: 0.3s ease;
+  display: none;
+  text-align: right;
+}
+
+.nav ul {
+  padding: 0 22px;
+}
+
+.nav li {
+  list-style: none;
+  padding: 12px 0;
+}
+
+.nav li a {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.nav li a:hover {
+  font-weight: bold;
+}
+
+#menu {
+  top: 0;
+  right: 0;
+  transform: translate(0%, 0%);
+  position: absolute;
+}
+.menu-bg {
+  top: 0;
+  right: -100%;
+  position: absolute;
+}
+
+.menu-bg {
+  z-index: 1;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, var(--primary), var(--secondary));
+  border-radius: 2rem;
+  transition: 0.3s ease;
+}
+
+.change {
+  display: block;
+}
+
+.change .bar {
+  background-color: white;
+}
+
+.change #bar1 {
+  transform: translateX(50px) translateY(0px) rotateZ(-45deg);
+}
+
+.change #bar2 {
+  opacity: 0;
+}
+
+.change #bar3 {
+  transform: translateX(50px) translateY(-10px) rotateZ(45deg);
+}
+
+.change-bg {
+  width: 520px;
+  height: 100vh;
+  transform: translate(10%, -7%);
+}
+
+/* ------------- Section ----------------- */
+
+/* Section Title */
+.sectionTitleLeft {
+  transform: translateX(-100%);
+}
+
+/* Home CSS animation delay */
+
+.slide-in-left {
+  animation: slideInLeft 1s ease forwards;
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+    transition: ease;
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+    transition: ease;
+  }
 }
