@@ -17,9 +17,13 @@ require("./database/mongoose");
 const adminRouter = require("./route/adminRoute");
 const userRouter = require("./route/userRoute");
 const incubationRouter = require("./route/incubationRoute");
+const announcementRouter = require("./route/announcementRoute");
+const testimonialRouter = require("./route/testimonialRoute");
 
+app.use(announcementRouter);
 app.use(userRouter);
 app.use(adminRouter);
 app.use(incubationRouter);
+app.use(testimonialRouter);
 
 module.exports = app;

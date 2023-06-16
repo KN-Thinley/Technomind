@@ -26,7 +26,7 @@ const registerUser = async (req, res) => {
 
 const loginUser = async (req, res) => {
   try {
-    const user = await userModel.findbyCredentials(
+    const user = await userModel.findByCredentials(
       req.body.email,
       req.body.password
     );
@@ -62,7 +62,7 @@ const deleteUser = async (req, res) => {
     }
     res.json({ message: "user deleted successfully" });
   } catch (err) {
-    res.status(500)({
+    res.status(500).json({
       error: err.message,
     });
   }
@@ -142,6 +142,32 @@ const getMenteeCounts = async (req, res) => {
   }
 };
 
+const mentorsToMentees = async (req, res) => {
+  try {
+    const field = req.params.field;
+    // const { field } = req.user; // Assuming field is obtained from the authenticated user
+
+    // Find mentors with matching field
+    const matchingMentors = await userModel.find({
+      type: "Mentor",
+      field: field,
+    });
+
+    // Find all other mentors
+    const otherMentors = await userModel.find({
+      type: "Mentor",
+      field: { $ne: field },
+    });
+
+    // Concatenate the matching and other mentors
+    const mentors = matchingMentors.concat(otherMentors);
+
+    res.json({ mentors });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 module.exports = {
   registerUser,
   loginUser,
@@ -153,4 +179,5 @@ module.exports = {
   getUserCounts,
   getMenteeCounts,
   getMentorCounts,
+  mentorsToMentees,
 };

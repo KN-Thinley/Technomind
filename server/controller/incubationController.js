@@ -73,37 +73,65 @@ const updateForm = async (req, res) => {
       technology,
       locationAfterGrad,
       spaceRequirement,
+      status,
     } = req.body;
 
-    const updateIncubationForm = await incubationModel.findByIdAndUpdate(id, {
-      name,
-      gender,
-      dateOfBirth,
-      cid,
-      academicQualification,
-      currentAddress,
-      email,
-      phoneNumber,
-      additionalQualification: {
-        institution,
-        training,
-        duration,
+    const updateIncubationForm = await incubationModel.findByIdAndUpdate(
+      id,
+      {
+        name,
+        gender,
+        dateOfBirth,
+        cid,
+        academicQualification,
+        currentAddress,
+        email,
+        phoneNumber,
+        additionalQualification: {
+          institution,
+          training,
+          duration,
+        },
+        proposedBusinessInfo,
+        briefDesp,
+        supportRequirements,
+        technology,
+        locationAfterGrad,
+        spaceRequirement,
+        status,
       },
-      proposedBusinessInfo,
-      briefDesp,
-      supportRequirements,
-      technology,
-      locationAfterGrad,
-      spaceRequirement,
-    });
+      { new: true }
+    );
 
     if (!updateIncubationForm) {
-      console.log("incubation form is:", updateIncubationForm);
       return res.status(404).json({ message: "Incubation Form Not Found" });
     }
     res.json(updateIncubationForm);
   } catch (error) {
-    res.status(500).json({ erro: error.message });
+    res.status(500).json({ error: error.message });
+  }
+};
+
+const approvedIncubations = async (req, res) => {
+  try {
+    const approvedIncubations = await incubationModel.find({
+      status: "Approved",
+    });
+
+    res.json({ approvedIncubations });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+const approvedIncubationCounts = async (req, res) => {
+  try {
+    const approvedIncubationCounts = await incubationModel.countDocuments({
+      status: "Approved",
+    });
+    res.json(approvedIncubationCounts);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
   }
 };
 
@@ -114,4 +142,6 @@ module.exports = {
   getAllIncubationForm,
   getIncubationCounts,
   updateForm,
+  approvedIncubationCounts,
+  approvedIncubations,
 };
