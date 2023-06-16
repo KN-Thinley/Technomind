@@ -4,10 +4,6 @@ import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 // import { Chatbase } from "chatbase";
 
-import img1 from "./../assets/svg/undraw_online_learning_re_qw08.svg";
-import img2 from "./../assets/svg/undraw_data_trends_re_2cdy.svg";
-import img3 from "./../assets/svg/undraw_my_universe_803e.svg";
-
 const Home = () => {
   const section1Ref = useRef(null);
   const section2Ref = useRef(null);
@@ -15,7 +11,7 @@ const Home = () => {
 
   useEffect(() => {
     const observer1 = createObserver(section1Ref);
-    const observer2 = createObserver(section2Ref, 2);
+    const observer2 = createObserver(section2Ref);
     const observer3 = createObserver(section3Ref);
 
     return () => {
@@ -31,7 +27,6 @@ const Home = () => {
     };
   }, []);
 
-<<<<<<< HEAD
   useEffect(() => {
     // Add the Chatbase script dynamically to the document head
     const chatbaseScript = document.createElement("script");
@@ -47,19 +42,11 @@ const Home = () => {
   }, []);
 
   const createObserver = (ref) => {
-=======
-  const createObserver = (ref, index) => {
->>>>>>> 00b43370a3bcfd6db8c1bf87b4f052815e080f21
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          if (index % 2 === 0) {
-            entry.target.classList.add("slide-in-right");
-          } else {
-            entry.target.classList.add("slide-in-left");
-          }
+          entry.target.classList.add("slide-in-left");
         } else {
-          entry.target.classList.remove("slide-in-right");
           entry.target.classList.remove("slide-in-left");
         }
       });
@@ -95,49 +82,37 @@ const Home = () => {
 
       {/* Section 1 */}
       <div className="flex items-center justify-end w-screen h-screen heroBanner bg-black bg-cover bg-no-repeat text-white">
-        <div className="text-center mr-auto lg:ml-40 ml-auto leading-loose relative">
+        <div className="text-center mr-auto lg:ml-40 ml-auto leading-loose">
           <div
             ref={section1Ref}
-            className="w-full md:text-7xl text-5xl leading-loose sectionTitleLeft z-30 text-left"
+            className="md:text-7xl text-5xl sectionTitleLeft"
           >
-            Find your Perfect Mentors!
-          </div>
-          <div className="w-full imgContainer bg-slate-400	absolute z-10">
-            <img src={img1} className="absolute imgInside z-20" alt="" />
+            Find your Perfect Mentor!
           </div>
         </div>
       </div>
-
       {/* Section 2 */}
       <div className="flex items-center justify-end w-screen h-screen heroBanner bg-black bg-cover bg-no-repeat text-white">
-        <div className="text-center ml-auto lg:mr-40 mr-auto leading-loose relative">
-          <div className="w-full imgContainer2 bg-slate-400	absolute z-10">
-            <img src={img2} className="absolute imgInside2 z-20" alt="" />
-          </div>
+        <div className="text-center mr-auto lg:ml-40 ml-auto leading-loose">
           <div
             ref={section2Ref}
-            className="w-full md:text-7xl text-5xl leading-loose sectionTitleRight z-30 text-right"
+            className="md:text-7xl text-5xl sectionTitleLeft"
           >
-            Get in Touch with <br /> The Business Trends
+            Find your Perfect Mentor!
           </div>
         </div>
       </div>
-
       {/* Section 3 */}
       <div className="flex items-center justify-end w-screen h-screen heroBanner bg-black bg-cover bg-no-repeat text-white">
-        <div className="text-center mr-auto lg:ml-40 ml-auto leading-loose relative">
+        <div className="text-center mr-auto lg:ml-40 ml-auto leading-loose">
           <div
             ref={section3Ref}
-            className="w-full md:text-7xl text-5xl leading-loose sectionTitleLeft z-30 text-left"
+            className="md:text-7xl text-5xl sectionTitleLeft"
           >
-            Your Space to Shine!
-          </div>
-          <div className="w-full imgContainer3 bg-slate-400	absolute z-10">
-            <img src={img3} className="absolute imgInside3 z-20" alt="" />
+            Find your Perfect Mentor!
           </div>
         </div>
       </div>
-
       {/* Footer */}
       <Footer />
     </>
