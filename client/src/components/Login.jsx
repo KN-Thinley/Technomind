@@ -20,7 +20,7 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center items-center h-screen bg-[url('./assets/background.png')]">
       <form
         className="bg-white shadow-md rounded px-8 pt-6 pb-8 w-1/3"
         onSubmit={handleSubmit}
@@ -66,7 +66,7 @@ const LoginForm = () => {
           </button>
         </div>
         <Link
-          to="/SignupForm"
+          to="/user/signup"
           className="text-gray-700 text-sm hover:underline"
         >
           Haven't Signup yet? Sign Up

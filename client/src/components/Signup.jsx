@@ -179,7 +179,10 @@ const SignupForm = () => {
             Sign Up
           </button>
         </div>
-        <Link to="/LoginForm" className="text-gray-700 text-sm hover:underline">
+        <Link
+          to="/user/login"
+          className="text-gray-700 text-sm hover:underline"
+        >
           Don't you have account? LogIn
         </Link>
       </form>
