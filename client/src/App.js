@@ -1,10 +1,15 @@
 import { Routes } from "react-router-dom";
 import { Route } from "react-router-dom";
+import "./App.css";
+import LoginForm from "./components/Login";
+import SignupForm from "./components/Signup";
+
 const App = () => {
   return (
-    <Routes>
-      <div>hello</div>
-    </Routes>
+    <div>
+      <LoginForm />
+      {/* <SignupForm /> */}
+    </div>
   );
 };
 
