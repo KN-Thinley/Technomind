@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react";
 import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
-// import { Chatbase } from "chatbase";
 
 const Home = () => {
   const section1Ref = useRef(null);
