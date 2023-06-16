@@ -16,6 +16,6 @@ router.delete(
   "/announcement/delete/:id",
   announcementDetails.deleteAnnouncement
 );
-router.get("/announcement/update/:id", announcementDetails.updateAnnouncements);
+router.put("/announcement/update/:id", announcementDetails.updateAnnouncements);
 
 module.exports = router;

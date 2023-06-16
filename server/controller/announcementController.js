@@ -60,14 +60,14 @@ const getAllAnnouncements = async (req, res) => {
 };
 const updateAnnouncements = async (req, res) => {
   try {
-    const { _id } = req.postAnnouncement;
+    const { id } = req.params;
     const { title, description } = req.body;
     let image;
 
     if (req.file) {
       image = req.file.filename;
     }
-    const updateAnnouncements = await announcementModel.findByIdAndUpdate(_id, {
+    const updateAnnouncements = await announcementModel.findByIdAndUpdate(id, {
       title,
       image,
       description,

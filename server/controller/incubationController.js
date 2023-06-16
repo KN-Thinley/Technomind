@@ -75,6 +75,8 @@ const updateForm = async (req, res) => {
       spaceRequirement,
     } = req.body;
 
+    let status;
+
     const updateIncubationForm = await incubationModel.findByIdAndUpdate(id, {
       name,
       gender,
@@ -95,6 +97,7 @@ const updateForm = async (req, res) => {
       technology,
       locationAfterGrad,
       spaceRequirement,
+      status,
     });
 
     if (!updateIncubationForm) {
