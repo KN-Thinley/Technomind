@@ -105,19 +105,6 @@ const AppForm = () => {
               {formErrors.gender}
             </small>
           </div>
-          <div className="date-of-birth flex flex-col border-2 border-black-800 p-2">
-            <input
-              name="dateOfBirth"
-              type="date"
-              placeholder="Date of Birth"
-              className="input-field font-sans"
-              value={formValues.dateOfBirth}
-              onChange={handleChange}
-            />
-            <small className="font-sans text-red-500">
-              {formErrors.dateOfBirth}
-            </small>
-          </div>
           <div className="cid-no flex flex-col border-2 border-black-800 p-2">
             <input
               name="cidNo"
@@ -182,7 +169,7 @@ const AppForm = () => {
         </div>
         <button
           type="submit"
-          className="input-field text-center text-black font-sans sign-in-btn border-2 border-black-800 m-2 rounded-full w-100%"
+          className="input-field text-center text-black font-sans sign-in-btn border-2 border-black-800 m-2 rounded-full"
         >
           Next
         </button>
