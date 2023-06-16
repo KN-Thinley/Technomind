@@ -20,7 +20,7 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-[url('./assets/background.png')]">
+    <div className="flex justify-center items-center h-screen bg-[url('./assets/heroBanner.png')] bg-cover bg-no-repeat">
       <form
         className="bg-white shadow-md rounded px-8 pt-6 pb-8 w-1/3"
         onSubmit={handleSubmit}
