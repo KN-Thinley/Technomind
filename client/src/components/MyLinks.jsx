@@ -5,12 +5,12 @@ export const links = [
     sublinks: [
       {
         sublink: [
-          { name: "Vision", link: "/vision" },
-          { name: "Mission", link: "/vision" },
-          { name: "Policy & Regulatory", link: "/vision" },
-          { name: "Framework", link: "/vision" },
-          { name: "Mandates", link: "/vision" },
-          { name: "DoEE, EPD", link: "/vision" },
+          { name: "Vision", link: "/about" },
+          { name: "Mission", link: "/about" },
+          { name: "Policy & Regulatory", link: "/about" },
+          { name: "Framework", link: "/about" },
+          { name: "Mandates", link: "/about" },
+          { name: "DoEE, EPD", link: "/about" },
         ],
       },
     ],
@@ -21,9 +21,8 @@ export const links = [
     sublinks: [
       {
         sublink: [
-          { name: "Incubation", link: "/vision" },
-          { name: "Space", link: "/vision" },
-          { name: "BDS", link: "/vision" },
+          { name: "Incubation Space", link: "/services/incubation" },
+          { name: "BDS", link: "/services" },
         ],
       },
     ],
@@ -34,32 +33,32 @@ export const links = [
     sublinks: [
       {
         sublink: [
-          { name: "Startup Events", link: "/vision" },
-          { name: "Trainings", link: "/vision" },
-          { name: "Mentoring", link: "/vision" },
-          { name: "Program", link: "/vision" },
-          { name: "Promotion & Networking Events", link: "/vision" },
-          { name: "Accelerator Programs", link: "/vision" },
+          { name: "Startup Events", link: "/programs" },
+          { name: "Trainings", link: "/programs" },
+          { name: "Mentoring", link: "/programs" },
+          { name: "Program", link: "/programs" },
+          { name: "Promotion & Networking Events", link: "/programs" },
+          { name: "Accelerator Programs", link: "/programs" },
         ],
       },
     ],
   },
-  { name: "Mentors" },
-  { name: "Trainers" },
+  { name: "Mentors", link: "/mentors" },
   {
-    name: "Startups",
+    name: "Trainers",
     submenu: true,
     sublinks: [
       {
         sublink: [
-          { name: "Existing", link: "/vision" },
-          { name: "Incubatees", link: "/vision" },
-          { name: "Graduated", link: "/vision" },
-          { name: "Startups", link: "/vision" },
+          { name: "Existing", link: "/trainers" },
+          { name: "Incubatees", link: "/trainers" },
+          { name: "Graduated", link: "/trainers" },
+          { name: "Startups", link: "/trainers" },
         ],
       },
     ],
   },
-  { name: "Announcments" },
-  { name: "Testimonials" },
+  { name: "Startups", link: "/startups" },
+  { name: "Announcements", link: "/announcements" },
+  { name: "Testimonials", link: "/testimonials" },
 ];
