@@ -3,6 +3,9 @@ import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import HamburgerMenu from "./HamburgerMenu";
 import NavLinks from "./NavLinks";
+// import ologo from "../assets/ologo.png";
+// import title from "../assets/title.png";
+
 const Navbar = () => {
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -37,6 +40,18 @@ const Navbar = () => {
             <img src={logo} alt="/user" className="h-20 w-full" />
           </Link>
         </div>
+        {/* <div className="logo flex items-center justify-center gap-2">
+          <img
+            className="logo transition-transform duration-300 transform hover:scale-125"
+            src={ologo}
+            alt="Logo"
+          />
+          <img
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-300"
+            src={title}
+            alt="Title Image"
+          />
+        </div> */}
         <div className="lists flex items-center justify-center">
           <ul className="text-white flex">
             <div className="hidden lg:ul-lists lg:flex md:gap-8 lg:gap-18">
