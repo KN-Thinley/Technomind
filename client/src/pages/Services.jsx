@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from "react";
 import Navbar from "../components/Navbar";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 
-import img1 from "./../assets/svg/undraw_online_learning_re_qw08.svg";
+// import img1 from "./../assets/svg/undraw_online_learning_re_qw08.svg";
 import img2 from "./../assets/svg/undraw_data_trends_re_2cdy.svg";
 import img3 from "./../assets/svg/undraw_my_universe_803e.svg";
 
