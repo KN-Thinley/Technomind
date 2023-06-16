@@ -25,7 +25,7 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={` flex fixed w-screen  items-center justify-between lg:justify-around gap-4 md:gap-12 lg:gap-20 text-white text-base p-5 expand-lg main-nav 
+        className={` flex fixed w-screen  items-center justify-between lg:justify-around md:gap-4 md:gap-12 lg:gap-20 text-white text-base p-5 expand-lg main-nav 
         ${isLoaded ? "show-links" : ""} backdrop-blur	z-50`}
         id="content"
       >
