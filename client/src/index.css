@@ -265,6 +265,60 @@
 .imgInside3 {
   width: 150%;
   max-width: 200%;
-  top: 0;
+  top: -10%;
   left: -50%;
+}
+
+/* Reponsiveness */
+@media (max-width: 1440px) {
+  /* Section 1 img */
+  .imgContainer {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+
+    top: 0;
+    right: -30%;
+  }
+
+  .imgInside {
+    width: 150%;
+    max-width: 200%;
+    top: 0;
+    left: -50%;
+  }
+
+  /* Section 2 img */
+  .imgContainer2 {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+
+    top: -20%;
+    left: -75%;
+  }
+
+  .imgInside2 {
+    width: 150%;
+    max-width: 200%;
+    top: 20%;
+    right: -50%;
+  }
+
+  /* Section 3 img */
+  .imgContainer3 {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+
+    top: 0;
+    right: -80%;
+  }
+
+  .imgInside3 {
+    width: 150%;
+    max-width: 200%;
+    top: -10%;
+    left: -80%;
+  }
 }
