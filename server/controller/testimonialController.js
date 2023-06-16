@@ -54,11 +54,11 @@ const getAllTestimonial = async (req, res) => {
 const updateTestimonials = async (req, res) => {
   const { id } = req.params;
   try {
-    const { comments } = req.body;
+    const { comments, status } = req.body;
 
     const updatedTestimonial = await testimonialModel.findByIdAndUpdate(
       id,
-      { comments },
+      { comments, status },
       { new: true }
     );
 

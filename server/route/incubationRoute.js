@@ -8,5 +8,10 @@ router.get("/incubation/getAllForms", incubationInfo.getAllIncubationForm);
 router.get("/incubation/count", incubationInfo.getIncubationCounts);
 router.delete("/incubation/deleteForm/:id", incubationInfo.deleteForm);
 router.put("/incubation/updateForm/:id", incubationInfo.updateForm);
+router.get("/incubation/getApproved", incubationInfo.approvedIncubations);
+router.get(
+  "/incubation/getApprovedCounts",
+  incubationInfo.approvedIncubationCounts
+);
 
 module.exports = router;
