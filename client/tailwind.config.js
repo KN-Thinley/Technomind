@@ -12,7 +12,13 @@ module.exports = {
       sans: ["Helvetica", "sans-serif"],
       serif: ["Georgia", "serif"],
     },
-    extend: {},
+    extend: {
+      colors: {
+        primary: "rgb(17, 121, 171)",
+        secondary: "rgb(17, 151, 205)",
+        complimentary: "rgb(4, 92, 130)",
+      },
+    },
   },
   plugins: [],
 };

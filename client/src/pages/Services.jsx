@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 
-const Home = () => {
+const Services = () => {
   const section1Ref = useRef(null);
   const section2Ref = useRef(null);
   const section3Ref = useRef(null);
@@ -25,7 +25,6 @@ const Home = () => {
       }
     };
   }, []);
-
   const createObserver = (ref) => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -47,8 +46,8 @@ const Home = () => {
       <Navbar />
       {/* Hero Banner */}
       <div className="flex items-center justify-end w-screen h-screen heroBanner bg-[url('./assets/heroBanner.png')] bg-cover bg-no-repeat text-white	">
-        <div className="text-center mr-auto lg:ml-40 md:ml-20 ml-10">
-          <div className="text-7xl animate-bottom">Startup!</div>
+        <div className="text-center mr-auto ml-40">
+          <div className="text-7xl animate-bottom">Services</div>
         </div>
       </div>
 
@@ -91,4 +90,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Services;
