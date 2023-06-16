@@ -115,6 +115,33 @@ const updateUser = async (req, res) => {
   }
 };
 
+const getUserCounts = async (req, res) => {
+  try {
+    const userCounts = await userModel.countDocuments({});
+    res.json(userCounts);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+const getMentorCounts = async (req, res) => {
+  try {
+    const mentorCount = await userModel.countDocuments({ type: "Mentor" });
+    res.json(mentorCount);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+const getMenteeCounts = async (req, res) => {
+  try {
+    const menteeCounts = await userModel.countDocuments({ type: "Mentee" });
+    res.json(menteeCounts);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 module.exports = {
   registerUser,
   loginUser,
@@ -123,4 +150,7 @@ module.exports = {
   getSingleUser,
   getAllUsers,
   updateUser,
+  getUserCounts,
+  getMenteeCounts,
+  getMentorCounts,
 };

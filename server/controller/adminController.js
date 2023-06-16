@@ -48,4 +48,73 @@ const logoutAdmin = (req, res) => {
   }
 };
 
-module.exports = { signUpAdmin, loginAdmin, logoutAdmin };
+const deleteAdmin = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleteAdmin = await adminModel.findByIdAndRemove(id);
+
+    if (!deleteAdmin) {
+      return res.status(404).json({ message: "admin not found" });
+    }
+    res.json({ message: "admin deleted successfully" });
+  } catch (err) {
+    res.status(500).json({
+      error: err.message,
+    });
+  }
+};
+
+const getSingleAdmin = async (req, res) => {
+  try {
+    res.json(req.admin);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+const getAllAdmin = async (req, res) => {
+  try {
+    const admins = await adminModel.find();
+    res.json(admins);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+const getAdminCounts = async (req, res) => {
+  try {
+    const adminCounts = await adminModel.countDocuments({});
+    res.json(adminCounts);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+const updateAdmin = async (req, res) => {
+  try {
+    const { _id } = req.admin;
+    const { name } = req.body;
+
+    const updateUser = await userModel.findByIdAndUpdate(_id, {
+      name,
+    });
+
+    if (!updateUser) {
+      return res.status(404).json({ message: "Admin not found" });
+    }
+
+    res.json(updateUser);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+module.exports = {
+  signUpAdmin,
+  loginAdmin,
+  logoutAdmin,
+  deleteAdmin,
+  updateAdmin,
+  getSingleAdmin,
+  getAllAdmin,
+  getAdminCounts,
+};

@@ -32,5 +32,7 @@ router.put(
   upload.single("profilePic"),
   controller.updateUser
 );
+router.get("/user/getMentors", controller.getMentorCounts);
+router.get("/user/getMentees", controller.getMenteeCounts);
 
 module.exports = router;
