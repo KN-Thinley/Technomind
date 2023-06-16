@@ -3,8 +3,6 @@ import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import HamburgerMenu from "./HamburgerMenu";
 import NavLinks from "./NavLinks";
-// import ologo from "../assets/ologo.png";
-// import title from "../assets/title.png";
 
 const Navbar = () => {
   const [isLoaded, setIsLoaded] = useState(false);
