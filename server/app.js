@@ -19,11 +19,13 @@ const userRouter = require("./route/userRoute");
 const incubationRouter = require("./route/incubationRoute");
 const announcementRouter = require("./route/announcementRoute");
 const testimonialRouter = require("./route/testimonialRoute");
+const eventRouter = require("./route/eventRoute");
 
 app.use(announcementRouter);
 app.use(userRouter);
 app.use(adminRouter);
 app.use(incubationRouter);
 app.use(testimonialRouter);
+app.use(eventRouter);
 
 module.exports = app;
