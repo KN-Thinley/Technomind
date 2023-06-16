@@ -57,7 +57,7 @@ const ProInfo = () => {
       <div className="container mx-auto h-screen flex justify-center items-center">
         <form
           onSubmit={handleSubmit}
-          className="inline-block login-form px-24 py-8"
+          className="inline-block login-form px-32 py-8"
         >
           <h1 className="font-sans text-center font-black text-3xl pb-8">
             Personal Info
@@ -70,7 +70,7 @@ const ProInfo = () => {
               <textarea
                 name="briefDescription"
                 placeholder="Brief Description of Business Idea"
-                className="input-field font-sans"
+                className="input-field font-sans px-4 py-2 border border-gray-300 rounded-md"
                 value={formValues.briefDescription}
                 onChange={handleChange}
               />
@@ -84,7 +84,7 @@ const ProInfo = () => {
               <textarea
                 name="supportRequirement"
                 placeholder="Support Requirement from Business Incubation Center"
-                className="input-field font-sans"
+                className="input-field font-sans px-4 py-2 border border-gray-300 rounded-md"
                 value={formValues.supportRequirement}
                 onChange={handleChange}
               />
@@ -98,7 +98,7 @@ const ProInfo = () => {
               <textarea
                 name="technologyUsed"
                 placeholder="Technology to be Used"
-                className="input-field font-sans"
+                className="input-field font-sans px-4 py-2 border border-gray-300 rounded-md"
                 value={formValues.technologyUsed}
                 onChange={handleChange}
               />
@@ -112,7 +112,7 @@ const ProInfo = () => {
               <textarea
                 name="businessLocation"
                 placeholder="Business Location After Graduation"
-                className="input-field font-sans"
+                className="input-field font-sans px-4 py-2 border border-gray-300 rounded-md"
                 value={formValues.businessLocation}
                 onChange={handleChange}
               />
@@ -127,7 +127,7 @@ const ProInfo = () => {
                 name="spaceRequirement"
                 type="text"
                 placeholder="Space Requirement (sq. Ft)"
-                className="input-field font-sans"
+                className="input-field font-sans px-4 py-2 border border-gray-300 rounded-md"
                 value={formValues.spaceRequirement}
                 onChange={handleChange}
               />
@@ -139,13 +139,13 @@ const ProInfo = () => {
           <div className="flex justify-center gap-4 mt-8">
             <button
               type="submit"
-              className="input-field text-center text-white font-sans sign-in-btn"
+              className="input-field text-center text-white font-sans sign-in-btn bg-blue-500 border-2 border-blue-500 rounded-full w-32"
             >
               Submit
             </button>
             <button
               type="button"
-              className="input-field text-center text-white font-sans sign-in-btn"
+              className="input-field text-center text-white font-sans sign-in-btn bg-red-500 border-2 border-red-500 rounded-full w-32"
               onClick={() => navigate("/cancel")}
             >
               Cancel
