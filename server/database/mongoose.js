@@ -1,14 +1,17 @@
 const mongoose = require("mongoose");
 
 require("dotenv").config({ path: "../configuration/config.env" });
-// const DB = process.env.DATABASE;
+const DB = process.env.DATABASE;
 
 //connecting the database
 mongoose
-  .connect("mongodb://localhost:27017/startup", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(
+    "mongodb+srv://technomind:technomind123@technomind.fcmbk72.mongodb.net/Technomind?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
   // if the connections gets a success message
 
   .then((con) => {
