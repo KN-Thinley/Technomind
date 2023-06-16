@@ -13,7 +13,6 @@ mongoose
 
   .then((con) => {
     console.log("Database connected successfully");
-    // const userS = require("../model/userModel");
   })
 
   .catch((error) => {
