@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="icon" href="./favicon/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
@@ -24,9 +24,53 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+
+    <style>
+      :root {
+        /* Corporate Colors */
+        --primary: rgb(17, 121, 171);
+        --secondary: rgb(17, 151, 205);
+        --complimentary: rgb(4, 92, 130);
+
+        /* Colors */
+        --blackSoft: rgb(81, 81, 81);
+        --black: rgba(0, 0, 0, 1);
+        --white: rgba(245, 245, 247, 1);
+        --pureWhite: rgba(255, 255, 255, 1);
+
+        /* Spacings */
+        --gapSize: 16px;
+      }
+      /* Styling for scrollbar */
+      * {
+        /* width */
+        ::-webkit-scrollbar {
+          width: 3px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+          background: transparent;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+          background: var(--primary);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+          background: #555;
+        }
+      }
+      body {
+        overflow-x: hidden;
+      }
+    </style>
+
+    <title>Startup</title>
   </head>
-  <body>
+  <body onload="init()">
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
@@ -40,4 +84,76 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+  <script>
+    function init() {
+      new SmoothScroll(document, 120, 12);
+    }
+
+    function SmoothScroll(target, speed, smooth) {
+      if (target === document)
+        target =
+          document.scrollingElement ||
+          document.documentElement ||
+          document.body.parentNode ||
+          document.body; // cross browser support for document scrolling
+
+      var moving = false;
+      var pos = target.scrollTop;
+      var frame =
+        target === document.body && document.documentElement
+          ? document.documentElement
+          : target; // safari is the new IE
+
+      target.addEventListener("mousewheel", scrolled, { passive: false });
+      target.addEventListener("DOMMouseScroll", scrolled, { passive: false });
+
+      function scrolled(e) {
+        e.preventDefault(); // disable default scrolling
+
+        var delta = normalizeWheelDelta(e);
+
+        pos += -delta * speed;
+        pos = Math.max(
+          0,
+          Math.min(pos, target.scrollHeight - frame.clientHeight)
+        ); // limit scrolling
+
+        if (!moving) update();
+      }
+
+      function normalizeWheelDelta(e) {
+        if (e.detail) {
+          if (e.wheelDelta)
+            return (e.wheelDelta / e.detail / 40) * (e.detail > 0 ? 1 : -1);
+          // Opera
+          else return -e.detail / 3; // Firefox
+        } else return e.wheelDelta / 120; // IE,Safari,Chrome
+      }
+
+      function update() {
+        moving = true;
+
+        var delta = (pos - target.scrollTop) / smooth;
+
+        target.scrollTop += delta;
+
+        if (Math.abs(delta) > 0.5) requestFrame(update);
+        else moving = false;
+      }
+
+      var requestFrame = (function () {
+        // requestAnimationFrame cross browser
+        return (
+          window.requestAnimationFrame ||
+          window.webkitRequestAnimationFrame ||
+          window.mozRequestAnimationFrame ||
+          window.oRequestAnimationFrame ||
+          window.msRequestAnimationFrame ||
+          function (func) {
+            window.setTimeout(func, 1000 / 50);
+          }
+        );
+      })();
+    }
+  </script>
 </html>
