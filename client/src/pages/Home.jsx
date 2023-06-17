@@ -107,7 +107,6 @@ const Home = () => {
           ></button>
         </div>
       </div>
-
       {/* Section 1 */}
       <div className="flex items-center justify-end w-screen h-screen heroBanner bg-black bg-cover bg-no-repeat text-white">
         <div className="text-center mr-auto lg:ml-40 md:ml-auto ml-10 leading-loose relative">
