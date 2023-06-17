@@ -135,6 +135,81 @@ const approvedIncubationCounts = async (req, res) => {
   }
 };
 
+const pendingIncubations = async (req, res) => {
+  try {
+    const pendingIncubations = await incubationModel.find({
+      status: "Pending",
+    });
+
+    res.json({ pendingIncubations });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+const pendingIncubationCounts = async (req, res) => {
+  try {
+    const pendingIncubationCounts = await incubationModel.countDocuments({
+      type: "Pending",
+    });
+    res.json(pendingIncubationCounts);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+const rejectedIncubationCounts = async (req, res) => {
+  try {
+    const rejectedIncubationCounts = await incubationModel.countDocuments({
+      type: "Rejected",
+    });
+    res.json(rejectedIncubationCounts);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+const updateToRejected = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const incubation = await incubationModel.findByIdAndUpdate(
+      id,
+      { status: "Rejected" },
+      { new: true }
+    );
+
+    if (!incubation) {
+      return res.status(404).json({ error: "Incubation not found" });
+    }
+
+    res.json({ message: "Incubation status updated successfully", incubation });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+const updateToApproved = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const incubation = await incubationModel.findByIdAndUpdate(
+      id,
+      { status: "Approved" },
+      { new: true }
+    );
+
+    if (!incubation) {
+      return res.status(404).json({ error: "Incubation not found" });
+    }
+
+    res.json({ message: "Incubation status updated successfully", incubation });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
 module.exports = {
   sendForm,
   deleteForm,
@@ -144,4 +219,9 @@ module.exports = {
   updateForm,
   approvedIncubationCounts,
   approvedIncubations,
+  pendingIncubations,
+  pendingIncubationCounts,
+  rejectedIncubationCounts,
+  updateToApproved,
+  updateToRejected,
 };
