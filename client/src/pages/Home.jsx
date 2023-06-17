@@ -100,6 +100,7 @@ const Home = () => {
             <br />
             Center !
           </div>
+          
           <button className="registration">
             <Link to="/signup">Register</Link>
           </button>
