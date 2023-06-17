@@ -15,7 +15,6 @@ import Success from "./pages/Success";
 const App = () => {
   return (
     <div style={{ position: "relative" }}>
-      <Design />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />

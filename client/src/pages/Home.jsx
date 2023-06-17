@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import img1 from "./../assets/svg/undraw_online_learning_re_qw08.svg";
 import img2 from "./../assets/svg/undraw_data_trends_re_2cdy.svg";
 import img3 from "./../assets/svg/undraw_my_universe_803e.svg";
+import Design from "../components/Design";
 
 const Home = () => {
   const section1Ref = useRef(null);
@@ -73,6 +74,8 @@ const Home = () => {
 
   return (
     <>
+      <Design />
+
       {/* Navbar */}
       <Navbar />
       {/* Hero Banner */}
