@@ -1368,3 +1368,26 @@ button[disabled] {
   border-radius: 1em;
   transform: translate(-50%, -50%);
 }
+
+.userReview {
+  background-color: transparent;
+  border: 2px solid white;
+  width: 480px;
+  border-radius: 8px;
+  padding: 0.4em 1em;
+  margin-right: 20px;
+  color: white;
+}
+
+.registration {
+  padding: 0.5em 1em;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--primary);
+}
+
+.registration:hover {
+  filter: brightness(90%);
+}

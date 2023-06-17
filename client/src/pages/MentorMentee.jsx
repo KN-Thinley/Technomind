@@ -10,7 +10,7 @@ function ProfilePage() {
   useEffect(() => {
     // Fetch available mentors
     axios
-      .get("/user/getMentors")
+      .get("/user/matchmaking/")
       .then((response) => {
         setMentors(response.data);
       })
@@ -61,7 +61,7 @@ function ProfilePage() {
           >
             <img src="#" alt="" />
           </div>
-          <div>{currentUser.name}</div>
+          <div>John Doe</div>
           <div>Contact: 123123</div>
           <div>"I love Pineapples"</div>
           <div>Field: Business</div>
