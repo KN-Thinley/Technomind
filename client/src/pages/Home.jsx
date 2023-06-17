@@ -38,12 +38,12 @@ const Home = () => {
         // "./chatbot/chatbaseConfig.js"
       );
       chatbaseScript.src = "https://www.chatbase.co/embed.min.js";
-      chatbaseScript.id = "1eoqNQUdtCjvvTYZcgKdb";
+      chatbaseScript.id = "q4kd14UmXWlWqYvF6rqnT";
       chatbaseScript.defer = true;
       document.head.appendChild(chatbaseScript);
 
       return () => {
-        const scriptElement = document.getElementById("1eoqNQUdtCjvvTYZcgKdb");
+        const scriptElement = document.getElementById("q4kd14UmXWlWqYvF6rqnT");
         if (scriptElement) {
           document.head.removeChild(scriptElement);
         }
@@ -105,7 +105,10 @@ const Home = () => {
           </button>
         </div>
         <div>
-          <button className="focus:outline-none" onClick={openChatbot}></button>
+          <button
+            className="focus:outline-none hidden"
+            onClick={openChatbot}
+          ></button>
 
           <button
             className=" hidden fixed bottom-4 right-4 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
