@@ -139,14 +139,15 @@ const ProInfo = () => {
           <div className="flex justify-center gap-4 mt-8">
             <button
               type="submit"
-              className="input-field text-center text-white font-sans sign-in-btn"
+              className="input-field text-center text-white font-sans sign-in-btn bg-blue-500 border-2 border-blue-500 rounded-full w-32"
+              onClick={() => navigate("/success")}
             >
               Submit
             </button>
             <button
               type="button"
-              className="input-field text-center text-white font-sans sign-in-btn"
-              onClick={() => navigate("/cancel")}
+              className="input-field text-center text-white font-sans sign-in-btn bg-red-500 border-2 border-red-500 rounded-full w-32"
+              onClick={() => navigate("/")}
             >
               Cancel
             </button>
