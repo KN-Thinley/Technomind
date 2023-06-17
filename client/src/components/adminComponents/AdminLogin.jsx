@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 
-const LoginForm = () => {
+const AdminLogin = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,7 +21,7 @@ const LoginForm = () => {
       password: password,
     };
 
-    fetch("/user/login", {
+    fetch("/admin/login", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -31,7 +30,7 @@ const LoginForm = () => {
     })
       .then((res) => {
         if (res.ok) {
-          navigate("/");
+          navigate("/admin");
         }
       })
       .catch((error) => {
@@ -85,15 +84,9 @@ const LoginForm = () => {
             Log In
           </button>
         </div>
-        <Link
-          to="/user/signup"
-          className="text-gray-700 text-sm hover:underline"
-        >
-          Haven't Signup yet? Sign Up
-        </Link>
       </form>
     </div>
   );
 };
 
-export default LoginForm;
+export default AdminLogin;

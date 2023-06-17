@@ -1,16 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 
 const initialValues = {
-  fullname: "",
+  name: "",
   gender: "",
   dateOfBirth: "",
-  cidNo: "",
+  cid: null,
   academicQualification: "",
   currentAddress: "",
   email: "",
-  phoneNo: "",
+  phoneNo: null,
 };
 
 const AppliForm = () => {
@@ -26,6 +25,7 @@ const AppliForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     setFormErrors(validate(formValues));
     setIsSubmit(true);
   };
@@ -33,8 +33,8 @@ const AppliForm = () => {
   const validate = (values) => {
     const errors = {};
     // Add validations for the fields
-    if (!values.fullname) {
-      errors.fullname = "Fullname is required";
+    if (!values.name) {
+      errors.name = "Fullname is required";
     }
     if (!values.gender) {
       errors.gender = "Gender is required";
@@ -42,8 +42,8 @@ const AppliForm = () => {
     if (!values.dateOfBirth) {
       errors.dateOfBirth = "Date of Birth is required";
     }
-    if (!values.cidNo) {
-      errors.cidNo = "CID No is required";
+    if (!values.cid) {
+      errors.cid = "CID No is required";
     }
     if (!values.academicQualification) {
       errors.academicQualification = "Academic Qualification is required";
@@ -79,22 +79,20 @@ const AppliForm = () => {
         <div className="flex flex-col gap-2 font-sans border-2 border-black-800 p-2">
           <div className="username flex flex-col border-2 border-black-800 p-2">
             <input
-              name="fullname"
+              name="name"
               type="text"
               placeholder="Full Name"
-              className="input-field font-sans px-2 py-2 border border-gray-300 rounded-md w-full"
-              value={formValues.fullname}
+              className="input-field font-sans px-2 py-2 rounded-md w-full"
+              value={formValues.name}
               onChange={handleChange}
             />
-            <small className="font-sans text-red-500">
-              {formErrors.fullname}
-            </small>
+            <small className="font-sans text-red-500">{formErrors.name}</small>
           </div>
           <div className="flex flex-col md:flex-row gap-4">
             <div className="gender flex flex-col border-2 border-black-800 p-2">
               <select
                 name="gender"
-                className="input-field font-sans px-4 py-2 border border-gray-300 rounded-md p-2"
+                className="input-field font-sans px-4 py-2 rounded-md p-2"
                 value={formValues.gender}
                 onChange={handleChange}
               >
@@ -112,7 +110,7 @@ const AppliForm = () => {
                 name="dateOfBirth"
                 type="date"
                 placeholder="Date of Birth"
-                className="input-field font-sans px-4 py-2 border border-gray-300 rounded-md p-2"
+                className="input-field font-sans px-4 py-2  rounded-md p-2"
                 value={formValues.dateOfBirth}
                 onChange={handleChange}
               />
@@ -123,14 +121,14 @@ const AppliForm = () => {
           </div>
           <div className="cid-no flex flex-col border-2 border-black-800 p-2">
             <input
-              name="cidNo"
-              type="text"
+              name="cid"
+              type="Number"
               placeholder="CID No"
-              className="input-field font-sans px-4 py-2 border border-gray-300 rounded-md"
-              value={formValues.cidNo}
+              className="input-field font-sans px-4 py-2 rounded-md"
+              value={formValues.cid}
               onChange={handleChange}
             />
-            <small className="font-sans text-red-500">{formErrors.cidNo}</small>
+            <small className="font-sans text-red-500">{formErrors.cid}</small>
           </div>
 
           <div className="academic-qualification flex flex-col border-2 border-black-800 p-2">
@@ -138,7 +136,7 @@ const AppliForm = () => {
               name="academicQualification"
               type="text"
               placeholder="Academic Qualification"
-              className="input-field font-sans px-4 py-2 border border-gray-300 rounded-md"
+              className="input-field font-sans px-4 py-2  rounded-md"
               value={formValues.academicQualification}
               onChange={handleChange}
             />
@@ -152,7 +150,7 @@ const AppliForm = () => {
               name="currentAddress"
               type="text"
               placeholder="Current Address"
-              className="input-field font-sans px-4 py-2 border border-gray-300 rounded-md"
+              className="input-field font-sans px-4 py-2 rounded-md"
               value={formValues.currentAddress}
               onChange={handleChange}
             />
@@ -166,7 +164,7 @@ const AppliForm = () => {
               name="email"
               type="email"
               placeholder="Email"
-              className="input-field font-sans px-4 py-2 border border-gray-300 rounded-md"
+              className="input-field font-sans px-4 py-2  rounded-md"
               value={formValues.email}
               onChange={handleChange}
             />
@@ -176,9 +174,9 @@ const AppliForm = () => {
           <div className="phone-no flex flex-col border-2 border-black-800 p-2">
             <input
               name="phoneNo"
-              type="text"
+              type="Number"
               placeholder="Phone No"
-              className="input-field font-sans px-4 py-2 border border-gray-300 rounded-md"
+              className="input-field font-sans px-4 py-2  rounded-md"
               value={formValues.phoneNo}
               onChange={handleChange}
             />

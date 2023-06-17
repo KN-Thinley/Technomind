@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 const initialValues = {
-  institutionName: "",
+  institution: "",
   training: "",
   duration: "",
 };
@@ -28,8 +28,8 @@ const AddInfo = () => {
   const validate = (values) => {
     const errors = {};
 
-    if (!values.institutionName) {
-      errors.institutionName = "Name of Institution is required";
+    if (!values.institution) {
+      errors.institution = "Name of Institution is required";
     }
 
     if (!values.training) {
@@ -45,7 +45,7 @@ const AddInfo = () => {
 
   useEffect(() => {
     if (Object.keys(formErrors).length === 0 && isSubmit) {
-      sessionStorage.setItem("formValues", JSON.stringify(formValues));
+      sessionStorage.setItem("formValues2", JSON.stringify(formValues));
       navigate("/services/incubation/final");
     }
   }, [formErrors, formValues, isSubmit, navigate]);
@@ -63,15 +63,15 @@ const AddInfo = () => {
           <div className="flex flex-col items-center gap-4 font-sans">
             <div className="institution flex flex-col">
               <input
-                name="institutionName"
+                name="institution"
                 type="text"
                 placeholder="Name of Institution"
                 className="input-field font-sans px-4 py-2 border border-gray-300 rounded-md w-full"
-                value={formValues.institutionName}
+                value={formValues.institution}
                 onChange={handleChange}
               />
               <small className="font-sans text-red-500">
-                {formErrors.institutionName}
+                {formErrors.institution}
               </small>
             </div>
             <div className="training flex flex-col">
