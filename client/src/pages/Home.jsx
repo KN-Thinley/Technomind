@@ -32,17 +32,27 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    // Add the Chatbase script dynamically to the document head
-    const chatbaseScript = document.createElement("script");
-    chatbaseScript.src = "https://www.chatbase.co/embed.min.js";
-    chatbaseScript.id = "yf6SQMOv7u4Zi9ihYrCtf";
-    chatbaseScript.defer = true;
-    document.head.appendChild(chatbaseScript);
+    try {
+      const chatbaseScript = document.createElement(
+        "./chatbot/chatbaseConfig.js"
+      );
+      chatbaseScript.src = "https://www.chatbase.co/embed.min.js";
+      chatbaseScript.id = "yf6SQMOv7u4Zi9ihYrCtf";
+      chatbaseScript.defer = true;
+      document.head.appendChild(chatbaseScript);
 
-    // Clean up the Chatbase script when the component unmounts
-    return () => {
-      document.head.removeChild(chatbaseScript);
-    };
+      return () => {
+        const scriptElement = document.getElementById("yf6SQMOv7u4Zi9ihYrCtf");
+        if (scriptElement) {
+          document.head.removeChild(scriptElement);
+        }
+      };
+    } catch (error) {
+      console.error(
+        "An error occurred while adding or removing the script:",
+        error
+      );
+    }
   }, []);
 
   const createObserver = (ref, index) => {
@@ -81,13 +91,22 @@ const Home = () => {
       {/* Hero Banner */}
       <div className="flex items-center justify-end w-screen h-screen heroBanner bg-[url('./assets/heroBanner.png')] bg-cover bg-no-repeat text-white	">
         <div className="text-center mr-auto lg:ml-40 md:ml-20 ml-10">
-          <div className="text-7xl animate-bottom">Startup!</div>
+          <div
+            className="text-7xl animate-bottom"
+            style={{ textAlign: "left" }}
+          >
+            Entrepreneurship
+            <br />
+            Center !
+          </div>
         </div>
         <div>
           <button
             className="fixed bottom-4 right-4 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             onClick={openChatbot}
-          ></button>
+          >
+            Open
+          </button>
         </div>
       </div>
 

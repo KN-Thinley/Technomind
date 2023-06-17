@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -15,8 +17,26 @@ const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Email:", email);
-    console.log("Password:", password);
+    const formData = {
+      email: email,
+      password: password,
+    };
+
+    fetch("/user/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => {
+        if (res.ok) {
+          navigate("/");
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return (
@@ -65,10 +85,7 @@ const Login = () => {
             Log In
           </button>
         </div>
-        <Link
-          to="/user/signup"
-          className="text-gray-700 text-sm hover:underline"
-        >
+        <Link to="/signup" className="text-gray-700 text-sm hover:underline">
           Haven't Signup yet? Sign Up
         </Link>
       </form>
