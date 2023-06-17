@@ -1405,3 +1405,12 @@ button[disabled] {
   max-width: 200%;
   object-fit: cover;
 }
+
+.mentors {
+  max-height: 415px;
+  overflow-y: scroll;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
