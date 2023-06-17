@@ -34,8 +34,8 @@ const Home = () => {
   useEffect(() => {
     try {
       const chatbaseScript = document.createElement(
-        "script"
-        // "./chatbot/chatbaseConfig.js"
+        // "script"
+        "./chatbot/chatbaseConfig.js"
       );
       chatbaseScript.src = "https://www.chatbase.co/embed.min.js";
       chatbaseScript.id = "yf6SQMOv7u4Zi9ihYrCtf";
