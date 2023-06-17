@@ -1385,9 +1385,23 @@ button[disabled] {
   top: 80%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: var(--primary);
+  border: 2px solid var(--primary);
+  background: transparent;
 }
 
 .registration:hover {
   filter: brightness(90%);
+}
+
+.img1 {
+  width: 100%;
+  height: 100%;
+  max-width: 200%;
+  object-fit: cover;
+}
+.img2 {
+  width: 150%;
+  height: 100%;
+  max-width: 200%;
+  object-fit: cover;
 }

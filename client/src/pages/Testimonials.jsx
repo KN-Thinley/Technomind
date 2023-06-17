@@ -67,7 +67,7 @@ const Testimonials = () => {
           <div className="w-full md:text-7xl text-5xl leading-loose sectionTitleLeft z-30 flex justify-center align-between pointer">
             +
           </div>
-          <input type="text" className="userReview"></input>
+          <input type="text" className="userReview mr-5"></input>
           Post Something?
         </div>
       </div>

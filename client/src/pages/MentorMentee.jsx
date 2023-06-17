@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import img1 from "../assets/users/bill-gates-6820567_960_720.png";
+import img2 from "../assets/users/8b3cd50a-a8d3-41dd-9d0d-ba56cb4cac9b-removebg-preview.png";
 
 function ProfilePage() {
   const [mentors, setMentors] = useState([]);
@@ -56,10 +58,10 @@ function ProfilePage() {
           <h2 className="text-xl">Your Mentee Profile</h2>
           {/* Render user profile data */}
           <div
-            className="profilePic w-24 h-24 bg-black rounded-full m-auto my-5
+            className="profilePic w-24 h-24 bg-black rounded-full m-auto my-5 overflow-hidden
 "
           >
-            <img src="#" alt="" />
+            <img src={img1} alt="" className="img1" />
           </div>
           <div>John Doe</div>
           <div>Contact: 17420273</div>
@@ -72,8 +74,8 @@ function ProfilePage() {
         <div className="userProfile w-1/4 flex flex-col justify-center align-middle p-5 text-center rounded-lg bg-slate-300 gap-4	">
           <h2 className="text-xl">Available Mentors</h2>
           {/* Render user profile data */}
-          <div className="profilePic w-24 h-24 bg-black rounded-full m-auto my-5">
-            <img src="#" alt="" />
+          <div className="profilePic w-24 h-24 bg-black rounded-full m-auto my-5 overflow-hidden">
+            <img src={img2} alt="" className="w-full object-cover img2" />
           </div>
           <div>Tashi Wangchuk</div>
           <div>Contact: 1429987</div>
