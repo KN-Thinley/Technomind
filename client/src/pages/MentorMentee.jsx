@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import img1 from "../assets/users/bill-gates-6820567_960_720.png";
 import img2 from "../assets/users/8b3cd50a-a8d3-41dd-9d0d-ba56cb4cac9b-removebg-preview.png";
+import img3 from "../assets/users/Vennessa.png";
 
 function ProfilePage() {
   const [mentors, setMentors] = useState([]);
@@ -66,7 +67,7 @@ function ProfilePage() {
           <div>John Doe</div>
           <div>Contact: 17420273</div>
           <div>"Here is the bio"</div>
-          <div>Field: Business</div>
+          <div>Field: Tech</div>
         </div>
 
         <button className="absolute connect">Connect</button>
@@ -82,7 +83,7 @@ function ProfilePage() {
             <div>Tashi Wangchuk</div>
             <div>Contact: 1429987</div>
             <div>"Hardwork Forever"</div>
-            <div>Field: Business</div>
+            <div>Field: Tech</div>
           </div>
 
           {/* 2 */}
@@ -90,12 +91,12 @@ function ProfilePage() {
             <h2 className="text-xl">Available Mentors</h2>
             {/* Render user profile data */}
             <div className="profilePic w-24 h-24 bg-black rounded-full m-auto my-5 overflow-hidden">
-              <img src={img2} alt="" className="w-full object-cover img2" />
+              <img src={img3} alt="" className="w-full object-cover img2" />
             </div>
-            <div>Tashi Wangchuk</div>
-            <div>Contact: 1429987</div>
-            <div>"Hardwork Forever"</div>
-            <div>Field: Business</div>
+            <div>Vannessa</div>
+            <div>Contact: 17898870</div>
+            <div>"Trust the bard"</div>
+            <div>Field: Tech</div>
           </div>
         </div>
       </div>
