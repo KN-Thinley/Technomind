@@ -66,7 +66,7 @@ const AddInfo = () => {
                 name="institutionName"
                 type="text"
                 placeholder="Name of Institution"
-                className="input-field font-sans"
+                className="input-field font-sans px-4 py-2 border border-gray-300 rounded-md w-full"
                 value={formValues.institutionName}
                 onChange={handleChange}
               />
@@ -79,7 +79,7 @@ const AddInfo = () => {
                 name="training"
                 type="text"
                 placeholder="Training"
-                className="input-field font-sans"
+                className="input-field font-sans px-4 py-2 border border-gray-300 rounded-md w-full"
                 value={formValues.training}
                 onChange={handleChange}
               />
@@ -92,7 +92,7 @@ const AddInfo = () => {
                 name="duration"
                 type="text"
                 placeholder="Duration (days)"
-                className="input-field font-sans"
+                className="input-field font-sans px-4 py-2 border border-gray-300 rounded-md w-full"
                 value={formValues.duration}
                 onChange={handleChange}
               />
@@ -103,7 +103,7 @@ const AddInfo = () => {
           </div>
           <button
             type="submit"
-            className="input-field text-center text-white font-sans sign-in-btn"
+            className="input-field text-center text-white font-sans sign-in-btn bg-blue-500 border-2 border-blue-500 rounded-full px-4 py-2 mt-4 mx-auto"
           >
             Next
           </button>
