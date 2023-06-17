@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import img1 from "./../assets/svg/undraw_online_learning_re_qw08.svg";
 import img2 from "./../assets/svg/undraw_data_trends_re_2cdy.svg";
 import img3 from "./../assets/svg/undraw_my_universe_803e.svg";
+import Design from "../components/Design";
 
 const Home = () => {
   const section1Ref = useRef(null);
@@ -73,12 +74,21 @@ const Home = () => {
 
   return (
     <>
+      <Design />
+
       {/* Navbar */}
       <Navbar />
       {/* Hero Banner */}
       <div className="flex items-center justify-end w-screen h-screen heroBanner bg-[url('./assets/heroBanner.png')] bg-cover bg-no-repeat text-white	">
         <div className="text-center mr-auto lg:ml-40 md:ml-20 ml-10">
-          <div className="text-7xl animate-bottom">Startup!</div>
+          <div
+            className="text-7xl animate-bottom"
+            style={{ textAlign: "left" }}
+          >
+            Entrepreneurship
+            <br />
+            Center !
+          </div>
         </div>
         <div>
           <button
@@ -90,10 +100,10 @@ const Home = () => {
 
       {/* Section 1 */}
       <div className="flex items-center justify-end w-screen h-screen heroBanner bg-black bg-cover bg-no-repeat text-white">
-        <div className="text-center mr-auto lg:ml-40 ml-auto leading-loose relative">
+        <div className="text-center mr-auto lg:ml-40 md:ml-auto ml-10 leading-loose relative">
           <div
             ref={section1Ref}
-            className="w-full md:text-7xl text-5xl leading-loose sectionTitleLeft z-30 text-left"
+            className="w-full md:text-7xl text-4xl leading-loose sectionTitleLeft z-30 text-left"
           >
             Find your Perfect Mentors!
           </div>
@@ -111,7 +121,7 @@ const Home = () => {
           </div>
           <div
             ref={section2Ref}
-            className="w-full md:text-7xl text-5xl leading-loose sectionTitleRight z-30 text-right"
+            className="w-full md:text-7xl text-4xl leading-loose sectionTitleRight z-30 text-right"
           >
             Get in Touch with <br /> The Business Trends
           </div>
@@ -123,7 +133,7 @@ const Home = () => {
         <div className="text-center mr-auto lg:ml-40 ml-auto leading-loose relative">
           <div
             ref={section3Ref}
-            className="w-full md:text-7xl text-5xl leading-loose sectionTitleLeft z-30 text-left"
+            className="w-full md:text-7xl text-4xl leading-loose sectionTitleLeft z-30 text-left"
           >
             Your Space to Shine!
           </div>

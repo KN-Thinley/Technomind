@@ -13,7 +13,7 @@ const initialValues = {
   phoneNo: "",
 };
 
-const AppForm = () => {
+const AppliForm = () => {
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
@@ -63,7 +63,7 @@ const AppForm = () => {
   useEffect(() => {
     if (Object.keys(formErrors).length === 0 && isSubmit) {
       sessionStorage.setItem("formValues", JSON.stringify(formValues));
-      navigate("/additional");
+      navigate("/services/incubation/additional");
     }
   }, [formErrors, formValues, isSubmit, navigate]);
 
@@ -198,4 +198,4 @@ const AppForm = () => {
   );
 };
 
-export default AppForm;
+export default AppliForm;

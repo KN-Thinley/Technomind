@@ -17,7 +17,7 @@ const Navbar = () => {
     if (isLoaded) {
       let delay = 0;
       navLinks.forEach((link) => {
-        link.style.animation = `fadeIn 2s ease forwards ${delay}s`;
+        link.style.animation = `fadeIn 2.5s ease forwards ${delay}s`;
         delay += 0.1;
       });
     }
@@ -26,7 +26,7 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={` flex fixed w-screen  items-center justify-between lg:justify-around md:gap-4 lg:gap-20 text-white text-base p-5 expand-lg main-nav 
+        className={` flex fixed w-screen  items-center justify-between lg:justify-around md:gap-4 lg:gap-20 text-white text-base p-3 expand-lg main-nav 
         ${isLoaded ? "show-links" : ""} backdrop-blur	z-50`}
         id="content"
       >
