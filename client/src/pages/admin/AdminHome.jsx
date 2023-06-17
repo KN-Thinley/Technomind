@@ -1,10 +1,11 @@
 import AdminNavbar from "../../components/adminComponents/AdminNavbar";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import AdminFooter from "../../components/adminComponents/AdminFooter";
 
 import img1 from "../../assets/svg/undraw_online_learning_re_qw08.svg";
 import img2 from "../../assets/svg/undraw_data_trends_re_2cdy.svg";
 import img3 from "../../assets/svg/undraw_my_universe_803e.svg";
+
 const AdminHome = () => {
   const section1Ref = useRef(null);
   const section2Ref = useRef(null);
@@ -61,6 +62,132 @@ const AdminHome = () => {
     observer.observe(ref.current);
     return observer;
   };
+
+  const [mentors, setMentors] = useState([]);
+  const [mentees, setMentees] = useState([]);
+  const [admins, setAdmins] = useState([]);
+
+  useEffect(() => {
+    fetch("/user/getMentors")
+      .then((response) => response.json())
+      .then((data) => {
+        setMentors(data);
+      })
+      .catch((error) => {
+        console.error("Error retrieving mentors:", error);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch("/user/getMentees")
+      .then((response) => response.json())
+      .then((data) => {
+        setMentees(data);
+      })
+      .catch((error) => {
+        console.error("Error retrieving mentees:", error);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch("/admin/adminCounts")
+      .then((response) => response.json())
+      .then((data) => {
+        setAdmins(data);
+      })
+      .catch((error) => {
+        console.error("Error retrieving admins:", error);
+      });
+  }, []);
+
+  const [pendingForms, setPendingForms] = useState([]);
+
+  useEffect(() => {
+    fetch("/incubation/getPending")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setPendingForms(data.pendingIncubations);
+      })
+      .catch((error) => {
+        console.error("Error retrieving pending forms:", error);
+      });
+  }, []);
+
+  const handleAccept = (formId) => {
+    // Perform accept logic, e.g., send a request to update the form status to "Approved"
+    fetch(`/incubation/updateToApproved/${formId}`, {
+      method: "PUT",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Update the UI to reflect the change (if necessary)
+        // For example, you can remove the accepted form from the list
+        setPendingForms((prevForms) =>
+          prevForms.filter((form) => form._id !== formId)
+        );
+      })
+      .catch((error) => {
+        console.error("Error accepting form:", error);
+      });
+  };
+
+  const handleReject = (formId) => {
+    // Perform reject logic, e.g., send a request to update the form status to "Rejected"
+    fetch(`/incubation/updateToRejected/${formId}`, {
+      method: "PUT",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Update the UI to reflect the change (if necessary)
+        // For example, you can remove the rejected form from the list
+        setPendingForms((prevForms) =>
+          prevForms.filter((form) => form._id !== formId)
+        );
+      })
+      .catch((error) => {
+        console.error("Error rejecting form:", error);
+      });
+  };
+
+  // Counts
+  const [approved, setApproved] = useState([]);
+  const [pending, setPending] = useState([]);
+  const [rejected, setRejected] = useState([]);
+
+  useEffect(() => {
+    fetch("/incubation/getApprovedCounts")
+      .then((response) => response.json())
+      .then((data) => {
+        setApproved(data);
+      })
+      .catch((error) => {
+        console.error("Error retrieving mentors:", error);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch("/incubation/getPendingCounts")
+      .then((response) => response.json())
+      .then((data) => {
+        setPending(data);
+      })
+      .catch((error) => {
+        console.error("Error retrieving mentors:", error);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch("/incubation/getRejectedCounts")
+      .then((response) => response.json())
+      .then((data) => {
+        setRejected(data);
+      })
+      .catch((error) => {
+        console.error("Error retrieving mentors:", error);
+      });
+  }, []);
+
   return (
     <>
       <AdminNavbar />
@@ -84,15 +211,15 @@ const AdminHome = () => {
           <div className="invoice">
             <div className="box margleft">
               <div className="sdesc">Mentees</div>
-              <div className="stitle">120 -</div>
+              <div className="stitle">{mentees}</div>
             </div>
             <div className="box">
               <div className="sdesc">Mentors</div>
-              <div className="stitle">12 -</div>
+              <div className="stitle">{mentors}</div>
             </div>
             <div className="box">
               <div className="sdesc">Admins</div>
-              <div className="stitle">4 -</div>
+              <div className="stitle">{admins}</div>
             </div>
           </div>
 
@@ -101,26 +228,14 @@ const AdminHome = () => {
             <div className="sidetext shadow shadow1">
               <div className="stitle">Pending Approvals</div>
               <div className="sdesc">By Latest!</div>
-              <div className="srvdetails coral">
-                <div className="username">Tashi</div>
-                <span> Pending</span> <button>Accept</button>
-                <button>Reject</button>
-              </div>
-              <div className="srvdetails teal">
-                <div className="username">Tashi</div>
-                <span> Pending</span> <button>Accept</button>
-                <button>Reject</button>
-              </div>
-              <div className="srvdetails orange">
-                <div className="username">Tashi</div>
-                <span> Pending</span> <button>Accept</button>
-                <button>Reject</button>
-              </div>
-              <div className="srvdetails purple">
-                <div className="username">Tashi</div>
-                <span> Pending</span> <button>Accept</button>
-                <button>Reject</button>
-              </div>
+              {pendingForms.map((form) => (
+                <div className="srvdetails" key={form._id}>
+                  <div className="username">{form.name}</div>
+                  <span> Pending</span>
+                  <button onClick={() => handleAccept(form._id)}>Accept</button>
+                  <button onClick={() => handleReject(form._id)}>Reject</button>
+                </div>
+              ))}
             </div>
 
             <div className="schart">
@@ -141,27 +256,27 @@ const AdminHome = () => {
               <div className="inchart sbx1">
                 <div className="intitle">
                   <div className="incost">
-                    <span>Users</span>
+                    <span>Approved</span>
                   </div>
-                  <div>220</div>
+                  <div>{approved}</div>
                 </div>
               </div>
 
               <div className="inchart sbx2">
                 <div className="intitle">
                   <div className="incost">
-                    <span>Something Count</span>
+                    <span>Pending</span>
                   </div>
-                  <div>440</div>
+                  <div>{pending}</div>
                 </div>
               </div>
 
               <div className="inchart sbx3">
                 <div className="intitle">
                   <div className="incost">
-                    <span>Another</span>
+                    <span>Rejected</span>
                   </div>
-                  <div>990</div>
+                  <div>{rejected}</div>
                 </div>
               </div>
             </div>

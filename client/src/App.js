@@ -16,6 +16,7 @@ import Register from "./pages/Register";
 import MenSignup from "./pages/MenSignup";
 import Success from "./pages/Success";
 import ProInfo from "./components/ProInfo";
+import MentorMentee from "./pages/MentorMentee";
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
       <Route path="/about" element={<About />} />
       <Route path="/services" element={<Services />} />
       <Route path="/success" element={<Success />} />
+      <Route path="/mentors" element={<MentorMentee />} />
       <Route path="/services/incubation/additional" element={<AddInfo />} />
       <Route path="/services/incubation/final" element={<ProInfo />} />
       <Route path="/testimonials" element={<Testimonials />} />
