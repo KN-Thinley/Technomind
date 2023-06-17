@@ -57,7 +57,7 @@ const ProInfo = () => {
       <div className="container mx-auto h-screen flex justify-center items-center">
         <form
           onSubmit={handleSubmit}
-          className="inline-block login-form px-32 py-8"
+          className="inline-block login-form px-34 py-8"
         >
           <h1 className="font-sans text-center font-black text-3xl pb-8">
             Personal Info
@@ -84,7 +84,7 @@ const ProInfo = () => {
               <textarea
                 name="supportRequirement"
                 placeholder="Support Requirement from Business Incubation Center"
-                className="input-field font-sans px-4 py-2 border border-gray-300 rounded-md"
+                className="input-field font-sans px-4 py-2 border border-gray-300 rounded-md w-full"
                 value={formValues.supportRequirement}
                 onChange={handleChange}
               />
