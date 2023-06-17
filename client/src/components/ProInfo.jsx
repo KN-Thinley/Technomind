@@ -1,5 +1,4 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const initialValues = {
@@ -25,34 +24,10 @@ const ProInfo = () => {
     e.preventDefault();
     setFormErrors(validate(formValues));
     setIsSubmit(true);
-
-    if (Object.keys(formErrors).length === 0) {
-      try {
-        const response = await axios.post("/api/submit-form", formValues);
-        if (response.status === 200) {
-          // Successful request, navigate to the success page
-          navigate("/success", { replace: true });
-        } else {
-          // Request failed, handle the error
-          throw new Error("Failed to submit the form.");
-        }
-      } catch (error) {
-        // Request failed, handle the error
-        console.error(error);
-        // You can display an error message to the user here
-      }
-    }
+    const formValue1 = JSON.parse(sessionStorage.getItem("formValues"));
+    const formValue2 = JSON.parse(sessionStorage.getItem("formValues2"));
+    saveDataToDatabase(formValue1, formValue2, formValues);
   };
-
-  useEffect(() => {
-    if (Object.keys(formErrors).length === 0 && isSubmit) {
-      const formValue1 = JSON.parse(sessionStorage.getItem("formValues"));
-      const formValue2 = JSON.parse(sessionStorage.getItem("formValues2"));
-
-      // make api request to save dataa in the database
-      saveDataToDatabase(formValue1, formValue2);
-    }
-  });
 
   const validate = (values) => {
     const errors = {};
@@ -91,11 +66,9 @@ const ProInfo = () => {
       currentAddress: formValue1.currentAddress,
       email: formValue1.email,
       phoneNo: formValue1.phoneNo,
-      additionalQualifications: {
-        institution: formValue2.institution,
-        training: formValue2.training,
-        duration: formValue2.duration,
-      },
+      institution: formValue2.institution,
+      training: formValue2.training,
+      duration: formValue2.duration,
       briefDesp: formValues.briefDesp,
       supportRequirement: formValues.supportRequirement,
       technology: formValues.technology,
@@ -113,6 +86,7 @@ const ProInfo = () => {
       .then((data) => {
         console.log(data);
         sessionStorage.clear();
+        navigate("/success");
       })
       .catch((error) => {
         console.error("Error", error);
@@ -124,15 +98,12 @@ const ProInfo = () => {
       <div className="container mx-auto h-screen flex justify-center items-center">
         <form
           onSubmit={handleSubmit}
-          className="inline-block login-form px-34 py-8"
+          className="inline-block login-form px-32 py-4 border-2"
         >
           <h1 className="font-sans text-center font-black text-3xl pb-8">
             Personal Info
           </h1>
           <div className="flex flex-col items-center gap-4 font-sans">
-            {/* Existing fields */}
-
-            {/* Brief Description */}
             <div className="briefDescription flex flex-col">
               <textarea
                 name="briefDesp"
