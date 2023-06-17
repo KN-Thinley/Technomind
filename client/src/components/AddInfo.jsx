@@ -46,7 +46,7 @@ const AddInfo = () => {
   useEffect(() => {
     if (Object.keys(formErrors).length === 0 && isSubmit) {
       sessionStorage.setItem("formValues", JSON.stringify(formValues));
-      navigate("/propose");
+      navigate("/services/incubation/final");
     }
   }, [formErrors, formValues, isSubmit, navigate]);
 

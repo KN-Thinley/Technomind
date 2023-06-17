@@ -140,13 +140,14 @@ const ProInfo = () => {
             <button
               type="submit"
               className="input-field text-center text-white font-sans sign-in-btn"
+              onClick={() => navigate("/success")}
             >
               Submit
             </button>
             <button
               type="button"
               className="input-field text-center text-white font-sans sign-in-btn"
-              onClick={() => navigate("/cancel")}
+              onClick={() => navigate("/")}
             >
               Cancel
             </button>

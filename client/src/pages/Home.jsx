@@ -90,10 +90,10 @@ const Home = () => {
 
       {/* Section 1 */}
       <div className="flex items-center justify-end w-screen h-screen heroBanner bg-black bg-cover bg-no-repeat text-white">
-        <div className="text-center mr-auto lg:ml-40 ml-auto leading-loose relative">
+        <div className="text-center mr-auto lg:ml-40 md:ml-auto ml-10 leading-loose relative">
           <div
             ref={section1Ref}
-            className="w-full md:text-7xl text-5xl leading-loose sectionTitleLeft z-30 text-left"
+            className="w-full md:text-7xl text-4xl leading-loose sectionTitleLeft z-30 text-left"
           >
             Find your Perfect Mentors!
           </div>
@@ -111,7 +111,7 @@ const Home = () => {
           </div>
           <div
             ref={section2Ref}
-            className="w-full md:text-7xl text-5xl leading-loose sectionTitleRight z-30 text-right"
+            className="w-full md:text-7xl text-4xl leading-loose sectionTitleRight z-30 text-right"
           >
             Get in Touch with <br /> The Business Trends
           </div>
@@ -123,7 +123,7 @@ const Home = () => {
         <div className="text-center mr-auto lg:ml-40 ml-auto leading-loose relative">
           <div
             ref={section3Ref}
-            className="w-full md:text-7xl text-5xl leading-loose sectionTitleLeft z-30 text-left"
+            className="w-full md:text-7xl text-4xl leading-loose sectionTitleLeft z-30 text-left"
           >
             Your Space to Shine!
           </div>
