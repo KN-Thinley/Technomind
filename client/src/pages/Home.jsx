@@ -104,12 +104,9 @@ const Home = () => {
           <button
             className="fixed bottom-4 right-4 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             onClick={openChatbot}
-          >
-            Open
-          </button>
+          ></button>
         </div>
       </div>
-
       {/* Section 1 */}
       <div className="flex items-center justify-end w-screen h-screen heroBanner bg-black bg-cover bg-no-repeat text-white">
         <div className="text-center mr-auto lg:ml-40 md:ml-auto ml-10 leading-loose relative">
