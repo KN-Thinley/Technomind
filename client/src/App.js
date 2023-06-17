@@ -2,7 +2,7 @@ import { Routes } from "react-router-dom";
 import { Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
-import AdminDashboard from "./components/adminComponents/AdminDashboard";
+import AdminHome from "./pages/admin/AdminHome";
 
 const App = () => {
   return (
@@ -11,7 +11,7 @@ const App = () => {
       <Route path="/services" element={<Services />} />
 
       {/* ADMIN ROUTES */}
-      <Route path="/admin" element={<AdminDashboard />} />
+      <Route path="/admin" element={<AdminHome />} />
     </Routes>
   );
 };
