@@ -1358,3 +1358,13 @@ button[disabled] {
   --s: 0%;
   --a: 0.5;
 }
+
+.connect {
+  top: 50%;
+  left: 50%;
+  background-color: var(--primary);
+  color: white;
+  padding: 1em 1.5em;
+  border-radius: 1em;
+  transform: translate(-50%, -50%);
+}
