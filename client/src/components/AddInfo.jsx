@@ -52,10 +52,10 @@ const AddInfo = () => {
 
   return (
     <>
-      <div className="container mx-auto h-screen flex justify-center items-center">
+      <div className="container mx-auto h-screen flex justify-center items-center ">
         <form
           onSubmit={handleSubmit}
-          className="inline-block login-form px-24 py-8"
+          className="inline-block login-form px-24 py-8 border-2"
         >
           <h1 className="font-sans text-center font-black text-3xl pb-8">
             Additional Info

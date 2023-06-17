@@ -7,7 +7,6 @@ import img1 from "./../assets/svg/undraw_online_learning_re_qw08.svg";
 import img2 from "./../assets/svg/undraw_data_trends_re_2cdy.svg";
 import img3 from "./../assets/svg/undraw_my_universe_803e.svg";
 import Design from "../components/Design";
-import script from "../chatbot/chatbaseConfigScript";
 
 const Home = () => {
   const section1Ref = useRef(null);
@@ -32,6 +31,31 @@ const Home = () => {
     };
   }, []);
 
+  useEffect(() => {
+    try {
+      const chatbaseScript = document.createElement(
+        "script"
+        // "./chatbot/chatbaseConfig.js"
+      );
+      chatbaseScript.src = "https://www.chatbase.co/embed.min.js";
+      chatbaseScript.id = "yf6SQMOv7u4Zi9ihYrCtf";
+      chatbaseScript.defer = true;
+      document.head.appendChild(chatbaseScript);
+
+      return () => {
+        const scriptElement = document.getElementById("yf6SQMOv7u4Zi9ihYrCtf");
+        if (scriptElement) {
+          document.head.removeChild(scriptElement);
+        }
+      };
+    } catch (error) {
+      console.error(
+        "An error occurred while adding or removing the script:",
+        error
+      );
+    }
+  }, []);
+
   const createObserver = (ref, index) => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -52,36 +76,12 @@ const Home = () => {
     return observer;
   };
 
-  // const openChatbot = () => {
-  //   // Open the Chatbase chatbot
-  //   if (window && window.chatbase && window.chatbase.openChat) {
-  //     window.chatbase.openChat();
-  //   }
-  // };
-
-  useEffect(() => {
-    // Create and add the chatbaseConfig script tag
-    const chatbaseConfigScript = document.createElement("script");
-    chatbaseConfigScript.innerHTML = `
-    window.chatbaseConfig = {
-      chatbotId: "yf6SQMOv7u4Zi9ihYrCtf",
-    };
-  `;
-    document.head.appendChild(chatbaseConfigScript);
-
-    // Create and add the chatbase embed script tag
-    const chatbaseEmbedScript = document.createElement("script");
-    chatbaseEmbedScript.src = "https://www.chatbase.co/embed.min.js";
-    chatbaseEmbedScript.id = "yf6SQMOv7u4Zi9ihYrCtf";
-    chatbaseEmbedScript.defer = true;
-    document.head.appendChild(chatbaseEmbedScript);
-
-    // Clean up the script tags when the component unmounts
-    return () => {
-      document.head.removeChild(chatbaseConfigScript);
-      document.head.removeChild(chatbaseEmbedScript);
-    };
-  }, []);
+  const openChatbot = () => {
+    // Open the Chatbase chatbot
+    if (window && window.chatbase && window.chatbase.openChat) {
+      window.chatbase.openChat();
+    }
+  };
 
   return (
     <>
@@ -93,7 +93,7 @@ const Home = () => {
       <div className="flex items-center justify-end w-screen h-screen heroBanner bg-[url('./assets/heroBanner.png')] bg-cover bg-no-repeat text-white	">
         <div className="text-center mr-auto lg:ml-40 md:ml-20 ml-10">
           <div
-            className="text-7xl animate-bottom"
+            className="md:text-7xl text-3xl animate-bottom"
             style={{ textAlign: "left" }}
           >
             Entrepreneurship
@@ -101,12 +101,12 @@ const Home = () => {
             Center !
           </div>
         </div>
-        {/* <div>
+        <div>
           <button
-            className="fixed bottom-4 right-4 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className=" hidden fixed bottom-4 right-4 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             onClick={openChatbot}
           ></button>
-        </div> */}
+        </div>
       </div>
       {/* Section 1 */}
       <div className="flex items-center justify-end w-screen h-screen heroBanner bg-black bg-cover bg-no-repeat text-white">

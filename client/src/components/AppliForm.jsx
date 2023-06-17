@@ -73,26 +73,26 @@ const AppliForm = () => {
         onSubmit={handleSubmit}
         className="flex flex-col items-center justify-center login-form max-w-xl px-24 py-8 border-2 border-black-800"
       >
-        <h1 className="font-sans text-center font-black text-3xl pb-8">
+        <h1 className="font-sans text-center font-black text-3xl pb-4">
           Personal Info
         </h1>
-        <div className="flex flex-col gap-2 font-sans border-2 border-black-800 p-2">
+        <div className="flex flex-col gap-2 font-sans  px-2 pb-4">
           <div className="username flex flex-col border-2 border-black-800 p-2">
             <input
               name="name"
               type="text"
               placeholder="Full Name"
-              className="input-field font-sans px-2 py-2 rounded-md w-full"
+              className="input-field font-sans px-2 py-2 rounded-md w-full focus:outline-none"
               value={formValues.name}
               onChange={handleChange}
             />
             <small className="font-sans text-red-500">{formErrors.name}</small>
           </div>
-          <div className="flex flex-col md:flex-row gap-4">
+          <div className="flex flex-col md:flex-row gap-2">
             <div className="gender flex flex-col border-2 border-black-800 p-2">
               <select
                 name="gender"
-                className="input-field font-sans px-4 py-2 rounded-md p-2"
+                className="input-field font-sans px-4 py-2 rounded-md focus:outline-none"
                 value={formValues.gender}
                 onChange={handleChange}
               >
@@ -105,12 +105,12 @@ const AppliForm = () => {
               </small>
             </div>
 
-            <div className="date-of-birth flex flex-col border-2 border-black-800 p-2">
+            <div className="date-of-birth flex flex-col border-2 border-black-800">
               <input
                 name="dateOfBirth"
                 type="date"
                 placeholder="Date of Birth"
-                className="input-field font-sans px-4 py-2  rounded-md p-2"
+                className="input-field font-sans px-4 py-2 rounded-md focus:outline-none"
                 value={formValues.dateOfBirth}
                 onChange={handleChange}
               />
@@ -119,24 +119,24 @@ const AppliForm = () => {
               </small>
             </div>
           </div>
-          <div className="cid-no flex flex-col border-2 border-black-800 p-2">
+          <div className="cid-no flex flex-col border-2 border-black-800">
             <input
               name="cid"
               type="Number"
               placeholder="CID No"
-              className="input-field font-sans px-4 py-2 rounded-md"
+              className="input-field font-sans px-4 py-2 rounded-md focus:outline-none"
               value={formValues.cid}
               onChange={handleChange}
             />
             <small className="font-sans text-red-500">{formErrors.cid}</small>
           </div>
 
-          <div className="academic-qualification flex flex-col border-2 border-black-800 p-2">
+          <div className="academic-qualification flex flex-col border-2 border-black-800 ">
             <input
               name="academicQualification"
               type="text"
               placeholder="Academic Qualification"
-              className="input-field font-sans px-4 py-2  rounded-md"
+              className="input-field font-sans px-4 py-2  rounded-md focus:outline-none"
               value={formValues.academicQualification}
               onChange={handleChange}
             />
@@ -145,12 +145,12 @@ const AppliForm = () => {
             </small>
           </div>
 
-          <div className="current-address flex flex-col border-2 border-black-800 p-2">
+          <div className="current-address flex flex-col border-2 border-black-800">
             <input
               name="currentAddress"
               type="text"
               placeholder="Current Address"
-              className="input-field font-sans px-4 py-2 rounded-md"
+              className="input-field font-sans px-4 py-2 rounded-md focus:outline-none"
               value={formValues.currentAddress}
               onChange={handleChange}
             />
@@ -159,24 +159,24 @@ const AppliForm = () => {
             </small>
           </div>
 
-          <div className="email flex flex-col border-2 border-black-800 p-2">
+          <div className="email flex flex-col border-2 border-black-800 ">
             <input
               name="email"
               type="email"
               placeholder="Email"
-              className="input-field font-sans px-4 py-2  rounded-md"
+              className="input-field font-sans px-4 py-2  rounded-md focus:outline-none"
               value={formValues.email}
               onChange={handleChange}
             />
             <small className="font-sans text-red-500">{formErrors.email}</small>
           </div>
 
-          <div className="phone-no flex flex-col border-2 border-black-800 p-2">
+          <div className="phone-no flex flex-col border-2 border-black-800">
             <input
               name="phoneNo"
               type="Number"
               placeholder="Phone No"
-              className="input-field font-sans px-4 py-2  rounded-md"
+              className="input-field font-sans px-4 py-2  rounded-md focus:outline-none"
               value={formValues.phoneNo}
               onChange={handleChange}
             />
@@ -187,7 +187,7 @@ const AppliForm = () => {
         </div>
         <button
           type="submit"
-          className="input-field text-center items-center justify-center text-white font-sans sign-in-btn bg-blue-500 border-2 border-blue-500 m-2 rounded-full w-3/4"
+          className="input-field text-center items-center justify-center text-white font-sans sign-in-btn bg-blue-500 border-2 border-blue-500 rounded-full w-3/4"
         >
           Next
         </button>
