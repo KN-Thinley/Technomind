@@ -18,6 +18,7 @@ import Success from "./pages/Success";
 import ProInfo from "./components/ProInfo";
 import MentorMentee from "./pages/MentorMentee";
 import AdminLogin from "./components/adminComponents/AdminLogin";
+import AdminAbout from "./pages/admin/AdminAbout";
 
 const App = () => {
   return (
@@ -43,6 +44,7 @@ const App = () => {
       <Route path="/testimonials" element={<Testimonials />} />
       <Route path="/services/incubation/final" element={<ProInfo />} />
       <Route path="/services/incubation/additional" element={<AddInfo />} />
+      <Route path="/admin/about" element={<AdminAbout />} />
     </Routes>
   );
 };

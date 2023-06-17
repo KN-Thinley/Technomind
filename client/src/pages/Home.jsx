@@ -38,12 +38,12 @@ const Home = () => {
         // "./chatbot/chatbaseConfig.js"
       );
       chatbaseScript.src = "https://www.chatbase.co/embed.min.js";
-      chatbaseScript.id = "yf6SQMOv7u4Zi9ihYrCtf";
+      chatbaseScript.id = "1eoqNQUdtCjvvTYZcgKdb";
       chatbaseScript.defer = true;
       document.head.appendChild(chatbaseScript);
 
       return () => {
-        const scriptElement = document.getElementById("yf6SQMOv7u4Zi9ihYrCtf");
+        const scriptElement = document.getElementById("1eoqNQUdtCjvvTYZcgKdb");
         if (scriptElement) {
           document.head.removeChild(scriptElement);
         }
