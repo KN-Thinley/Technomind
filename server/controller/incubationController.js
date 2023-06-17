@@ -150,7 +150,7 @@ const pendingIncubations = async (req, res) => {
 const pendingIncubationCounts = async (req, res) => {
   try {
     const pendingIncubationCounts = await incubationModel.countDocuments({
-      type: "Pending",
+      status: "Pending",
     });
     res.json(pendingIncubationCounts);
   } catch (error) {
@@ -161,7 +161,7 @@ const pendingIncubationCounts = async (req, res) => {
 const rejectedIncubationCounts = async (req, res) => {
   try {
     const rejectedIncubationCounts = await incubationModel.countDocuments({
-      type: "Rejected",
+      status: "Rejected",
     });
     res.json(rejectedIncubationCounts);
   } catch (error) {
