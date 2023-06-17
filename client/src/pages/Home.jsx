@@ -102,14 +102,12 @@ const Home = () => {
           </div>
         </div>
         <div>
-<<<<<<< HEAD
           <button className="focus:outline-none" onClick={openChatbot}></button>
-=======
+
           <button
             className=" hidden fixed bottom-4 right-4 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             onClick={openChatbot}
           ></button>
->>>>>>> b3183ec3ac8719a22ca0b3258b1701e884f041c7
         </div>
       </div>
       {/* Section 1 */}
