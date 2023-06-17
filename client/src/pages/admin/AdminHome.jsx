@@ -127,9 +127,11 @@ const AdminHome = () => {
           prevForms.filter((form) => form._id !== formId)
         );
       })
+
       .catch((error) => {
         console.error("Error accepting form:", error);
       });
+    window.location.reload();
   };
 
   const handleReject = (formId) => {
