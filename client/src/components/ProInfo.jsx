@@ -65,11 +65,11 @@ const ProInfo = () => {
       errors.supportRequirement = "Support Requirement is required";
     }
 
-    if (!values.technologyUsed) {
+    if (!values.technology) {
       errors.technology = "Technology Used is required";
     }
 
-    if (!values.businessLocation) {
+    if (!values.locationAfterGrad) {
       errors.locationAfterGrad = "Business Location is required";
     }
 
