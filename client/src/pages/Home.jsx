@@ -81,7 +81,14 @@ const Home = () => {
       {/* Hero Banner */}
       <div className="flex items-center justify-end w-screen h-screen heroBanner bg-[url('./assets/heroBanner.png')] bg-cover bg-no-repeat text-white	">
         <div className="text-center mr-auto lg:ml-40 md:ml-20 ml-10">
-          <div className="text-7xl animate-bottom">Startup!</div>
+          <div
+            className="text-7xl animate-bottom"
+            style={{ textAlign: "left" }}
+          >
+            Entrepreneurship
+            <br />
+            Center !
+          </div>
         </div>
         <div>
           <button
