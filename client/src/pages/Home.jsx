@@ -34,8 +34,8 @@ const Home = () => {
   useEffect(() => {
     try {
       const chatbaseScript = document.createElement(
-        // "script"
-        "./chatbot/chatbaseConfig.js"
+        "script"
+        // "./chatbot/chatbaseConfig.js"
       );
       chatbaseScript.src = "https://www.chatbase.co/embed.min.js";
       chatbaseScript.id = "yf6SQMOv7u4Zi9ihYrCtf";
@@ -93,7 +93,7 @@ const Home = () => {
       <div className="flex items-center justify-end w-screen h-screen heroBanner bg-[url('./assets/heroBanner.png')] bg-cover bg-no-repeat text-white	">
         <div className="text-center mr-auto lg:ml-40 md:ml-20 ml-10">
           <div
-            className="text-7xl animate-bottom"
+            className="md:text-7xl text-3xl animate-bottom"
             style={{ textAlign: "left" }}
           >
             Entrepreneurship
@@ -103,7 +103,7 @@ const Home = () => {
         </div>
         <div>
           <button
-            className="fixed bottom-4 right-4 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className=" hidden fixed bottom-4 right-4 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             onClick={openChatbot}
           ></button>
         </div>

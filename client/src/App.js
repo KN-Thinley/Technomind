@@ -17,6 +17,7 @@ import MenSignup from "./pages/MenSignup";
 import Success from "./pages/Success";
 import ProInfo from "./components/ProInfo";
 import MentorMentee from "./pages/MentorMentee";
+import AdminLogin from "./components/adminComponents/AdminLogin";
 
 const App = () => {
   return (
@@ -38,6 +39,7 @@ const App = () => {
 
       {/* ADMIN ROUTES */}
       <Route path="/admin" element={<AdminHome />} />
+      <Route path="/admin/login" element={<AdminLogin />} />
       <Route path="/testimonials" element={<Testimonials />} />
       <Route path="/services/incubation/final" element={<ProInfo />} />
       <Route path="/services/incubation/additional" element={<AddInfo />} />
