@@ -62,8 +62,8 @@ function ProfilePage() {
             <img src="#" alt="" />
           </div>
           <div>John Doe</div>
-          <div>Contact: 123123</div>
-          <div>"I love Pineapples"</div>
+          <div>Contact: 17420273</div>
+          <div>"Here is the bio"</div>
           <div>Field: Business</div>
         </div>
 
@@ -75,9 +75,9 @@ function ProfilePage() {
           <div className="profilePic w-24 h-24 bg-black rounded-full m-auto my-5">
             <img src="#" alt="" />
           </div>
-          <div>John Doe</div>
-          <div>Contact: 123123</div>
-          <div>"I love Pineapples"</div>
+          <div>Tashi Wangchuk</div>
+          <div>Contact: 1429987</div>
+          <div>"Hardwork Forever"</div>
           <div>Field: Business</div>
         </div>
       </div>
