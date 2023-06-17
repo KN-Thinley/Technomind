@@ -1,6 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 
 const initialValues = {
   fullname: "",
@@ -17,6 +16,7 @@ const AppliForm = () => {
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -28,6 +28,11 @@ const AppliForm = () => {
     e.preventDefault();
     setFormErrors(validate(formValues));
     setIsSubmit(true);
+
+    if (Object.keys(formErrors).length === 0) {
+      sessionStorage.setItem("formValues", JSON.stringify(formValues));
+      navigate("/services/incubation/additional");
+    }
   };
 
   const validate = (values) => {
