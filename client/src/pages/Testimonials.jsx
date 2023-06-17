@@ -61,6 +61,17 @@ const Testimonials = () => {
         </div>
       </div>
 
+      {/* Section */}
+      <div className="flex items-center justify-end w-screen h-screen heroBanner bg-black bg-cover bg-no-repeat text-white">
+        <div className="text-center mr-auto lg:ml-40 ml-auto leading-loose relative">
+          <div className="w-full md:text-7xl text-5xl leading-loose sectionTitleLeft z-30 flex justify-center align-between pointer">
+            +
+          </div>
+          <input type="text" className="userReview"></input>
+          Post Something?
+        </div>
+      </div>
+
       {/* Footer */}
       <Footer />
     </>
