@@ -34,8 +34,8 @@ const Home = () => {
   useEffect(() => {
     try {
       const chatbaseScript = document.createElement(
-        // "script"
-        "./chatbot/chatbaseConfig.js"
+        "script"
+        // "./chatbot/chatbaseConfig.js"
       );
       chatbaseScript.src = "https://www.chatbase.co/embed.min.js";
       chatbaseScript.id = "yf6SQMOv7u4Zi9ihYrCtf";
@@ -102,10 +102,7 @@ const Home = () => {
           </div>
         </div>
         <div>
-          <button
-            className="fixed bottom-4 right-4 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            onClick={openChatbot}
-          ></button>
+          <button className="focus:outline-none" onClick={openChatbot}></button>
         </div>
       </div>
       {/* Section 1 */}
