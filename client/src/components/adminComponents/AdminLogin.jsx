@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router";
 
 const AdminLogin = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -26,7 +27,15 @@ const AdminLogin = () => {
         "Content-type": "application/json",
       },
       body: JSON.stringify(formData),
-    });
+    })
+      .then((res) => {
+        if (res.ok) {
+          navigate("/admin");
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return (
