@@ -1,4 +1,5 @@
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const initialValues = {
@@ -20,11 +21,38 @@ const ProInfo = () => {
     setFormValues((prevFormValues) => ({ ...prevFormValues, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setFormErrors(validate(formValues));
     setIsSubmit(true);
+
+    if (Object.keys(formErrors).length === 0) {
+      try {
+        const response = await axios.post("/api/submit-form", formValues);
+        if (response.status === 200) {
+          // Successful request, navigate to the success page
+          navigate("/success", { replace: true });
+        } else {
+          // Request failed, handle the error
+          throw new Error("Failed to submit the form.");
+        }
+      } catch (error) {
+        // Request failed, handle the error
+        console.error(error);
+        // You can display an error message to the user here
+      }
+    }
   };
+
+  useEffect(() => {
+    if (Object.keys(formErrors).length === 0 && isSubmit) {
+      const formValue1 = JSON.parse(sessionStorage.getItem("formValues"));
+      const formValue2 = JSON.parse(sessionStorage.getItem("formValues2"));
+
+      // make api request to save dataa in the database
+      saveDataToDatabase(formValue1, formValue2);
+    }
+  });
 
   const validate = (values) => {
     const errors = {};
@@ -50,6 +78,39 @@ const ProInfo = () => {
     }
 
     return errors;
+  };
+
+  const saveDataToDatabase = (formValue1, formValue2) => {
+    // construct the data payload
+    const data = {
+      fullname: formValue1.fullname,
+      gender: formValue1.gender,
+      dateOfBirth: formValue1.dateOfBirth,
+      cidNo: formValue1.cidNo,
+      academicQualification: formValue1.academicQualification,
+      currentAddress: formValue1.currentAddress,
+      email: formValue1.email,
+      phoneNo: formValue1.phoneNo,
+
+      institutionName: formValue2.institutionName,
+      training: formValue2.training,
+      duration: formValue2.duration,
+    };
+
+    // make the api request to the backend server
+    fetch("/incubation/send", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        sessionStorage.clear();
+      })
+      .catch((error) => {
+        console.error("Error", error);
+      });
   };
 
   return (
@@ -140,7 +201,6 @@ const ProInfo = () => {
             <button
               type="submit"
               className="input-field text-center text-white font-sans sign-in-btn bg-blue-500 border-2 border-blue-500 rounded-full w-32"
-              onClick={() => navigate("/success")}
             >
               Submit
             </button>
