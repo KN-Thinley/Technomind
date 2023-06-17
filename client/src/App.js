@@ -9,7 +9,7 @@ import Login from "./pages/Login";
 import About from "./pages/About";
 import Design from "./components/Design";
 
-import AppliForm from "./components/AppliForm"
+import AppliForm from "./components/AppliForm";
 import AddInfo from "./components/AddInfo";
 
 import Register from "./pages/Register";
@@ -28,7 +28,7 @@ const App = () => {
       <Route path="/mentorSignup" element={<MenSignup />} />
       <Route path="/menteeSignup" element={<MenSignup />} />
       <Route path="/success" element={<Success />} />
-      <Route path="/services/incubation" element={<AppliForm/>}/>
+      <Route path="/services/incubation" element={<AppliForm />} />
 
       {/* ADMIN ROUTES */}
       <Route path="/admin" element={<AdminHome />} />

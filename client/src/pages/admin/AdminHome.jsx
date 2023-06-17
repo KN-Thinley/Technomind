@@ -67,25 +67,138 @@ const AdminHome = () => {
       {/* Hero Banner */}
       <div className="flex items-center justify-end w-screen h-screen heroBanner bg-[url('./assets/heroBanner.png')] bg-cover bg-no-repeat text-white	">
         <div className="text-center mr-auto lg:ml-40 md:ml-20 ml-10">
-          <div className="text-7xl animate-bottom">Startup!</div>
+          <div className="text-7xl animate-bottom">Dashboard</div>
+        </div>
+      </div>
+      {/* Dashboard */}
+      <div id="cont">
+        <div className="summdrill">
+          <div className="summary">
+            <div className="stitle">Current Workforce</div>
+            <div className="summcost">
+              The people that make up the taskforce
+            </div>
+            <br />
+            {/* <button>Back</button> */}
+          </div>
+          <div className="invoice">
+            <div className="box margleft">
+              <div className="sdesc">Mentees</div>
+              <div className="stitle">120 -</div>
+            </div>
+            <div className="box">
+              <div className="sdesc">Mentors</div>
+              <div className="stitle">12 -</div>
+            </div>
+            <div className="box">
+              <div className="sdesc">Admins</div>
+              <div className="stitle">4 -</div>
+            </div>
+          </div>
+
+          <hr />
+          <div className="side">
+            <div className="sidetext shadow shadow1">
+              <div className="stitle">Pending Approvals</div>
+              <div className="sdesc">By Latest!</div>
+              <div className="srvdetails coral">
+                Yoimiya <span> Admin Approval</span>
+              </div>
+              <div className="srvdetails teal">
+                Tashi <span> Mentor Approval</span>
+              </div>
+              <div className="srvdetails orange">
+                Thinley <span> Admin Approval</span>
+              </div>
+              <div className="srvdetails purple">
+                Leans <span> Admin Approval</span>
+              </div>
+            </div>
+
+            <div className="schart">
+              <div className="schartcont intitle">
+                <div className="incost">
+                  <span>1223.00</span>
+                </div>
+                <div>Total</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="subcharts">
+            <div className="inchartcont">
+              <div className="stitle">Cost as per grouping</div>
+              <div className="sdesc2">Group by environment</div>
+
+              <div className="inchart sbx1">
+                <div className="intitle">
+                  <div className="incost">
+                    <span>273.00</span>
+                  </div>
+                  <div>SBX</div>
+                </div>
+              </div>
+
+              <div className="inchart sbx2">
+                <div className="intitle">
+                  <div className="incost">
+                    <span>245.00</span>
+                  </div>
+                  <div>UAT</div>
+                </div>
+              </div>
+
+              <div className="inchart sbx3">
+                <div className="intitle">
+                  <div className="incost">
+                    <span>347.00</span>
+                  </div>
+                  <div>STAGE</div>
+                </div>
+              </div>
+
+              <div className="inchart sbx4">
+                <div className="intitle">
+                  <div className="incost">
+                    <span>135.00</span>
+                  </div>
+                  <div>Prod</div>
+                </div>
+              </div>
+
+              <div className="inchart sbx5">
+                <div className="intitle">
+                  <div className="incost">
+                    <span>103.00</span>
+                  </div>
+                  <div>SBX2</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Section 1 */}
       <div className="flex items-center justify-end w-screen h-screen heroBanner bg-black bg-cover bg-no-repeat text-white">
-        <div className="text-center mr-auto lg:ml-40 ml-auto leading-loose relative">
+        <div className="text-center mr-auto ml-auto leading-loose relative flex w-full justify-evenly">
           <div
+            className=" countContainer bg-slate-400 z-10 rounded-full"
             ref={section1Ref}
-            className="w-full md:text-7xl text-5xl leading-loose sectionTitleLeft z-30 text-left"
           >
-            Find your Perfect Mentors!
+            <div className="count">
+              <h4>Users Count</h4>
+              <span>120</span>
+            </div>
           </div>
-          <div className="w-full imgContainer bg-slate-400	absolute z-10">
-            <img src={img1} className="absolute imgInside z-20" alt="" />
+          <div className=" countContainer bg-slate-400 z-10 rounded-full">
+            <div className="count">
+              <h4>Startups</h4>
+              <span>230</span>
+            </div>
           </div>
         </div>
       </div>
-
       {/* Section 2 */}
       <div className="flex items-center justify-end w-screen h-screen heroBanner bg-black bg-cover bg-no-repeat text-white">
         <div className="text-center ml-auto lg:mr-40 mr-auto leading-loose relative">
@@ -100,7 +213,6 @@ const AdminHome = () => {
           </div>
         </div>
       </div>
-
       {/* Section 3 */}
       <div className="flex items-center justify-end w-screen h-screen heroBanner bg-black bg-cover bg-no-repeat text-white">
         <div className="text-center mr-auto lg:ml-40 ml-auto leading-loose relative">
@@ -115,7 +227,6 @@ const AdminHome = () => {
           </div>
         </div>
       </div>
-
       {/* Footer */}
       <AdminFooter />
     </>
