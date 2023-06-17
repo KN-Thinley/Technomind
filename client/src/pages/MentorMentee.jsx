@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 
 function ProfilePage() {
   const [mentors, setMentors] = useState([]);
-  const [mentees, setMentees] = useState([]);
+  const [currentUser, setUser] = useState([]);
 
   useEffect(() => {
     // Fetch available mentors
@@ -20,9 +20,9 @@ function ProfilePage() {
 
     // Fetch available mentees
     axios
-      .get("/user/getMentees")
+      .get("/user/getSingleUser")
       .then((response) => {
-        setMentees(response.data);
+        setUser(response.data);
       })
       .catch((error) => {
         console.error("Error fetching mentees:", error);
@@ -61,7 +61,7 @@ function ProfilePage() {
           >
             <img src="#" alt="" />
           </div>
-          <div>John Doe</div>
+          <div>{currentUser.name}</div>
           <div>Contact: 123123</div>
           <div>"I love Pineapples"</div>
           <div>Field: Business</div>
