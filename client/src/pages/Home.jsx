@@ -34,8 +34,8 @@ const Home = () => {
   useEffect(() => {
     try {
       const chatbaseScript = document.createElement(
-        "script"
-        // "./chatbot/chatbaseConfig.js"
+        // "script"
+        "./chatbot/chatbaseConfig.js"
       );
       chatbaseScript.src = "https://www.chatbase.co/embed.min.js";
       chatbaseScript.id = "q4kd14UmXWlWqYvF6rqnT";
@@ -98,9 +98,8 @@ const Home = () => {
           >
             Entrepreneurship
             <br />
-            Center !
+            Center
           </div>
-          
           <button className="registration">
             <Link to="/signup">Register</Link>
           </button>
