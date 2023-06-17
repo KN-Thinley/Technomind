@@ -1,3 +1,3 @@
 window.chatbaseConfig = {
-  chatbotId: "1eoqNQUdtCjvvTYZcgKdb",
+  chatbotId: "q4kd14UmXWlWqYvF6rqnT",
 };
