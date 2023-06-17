@@ -102,16 +102,24 @@ const AdminHome = () => {
               <div className="stitle">Pending Approvals</div>
               <div className="sdesc">By Latest!</div>
               <div className="srvdetails coral">
-                Yoimiya <span> Admin Approval</span>
+                <div className="username">Tashi</div>
+                <span> Pending</span> <button>Accept</button>
+                <button>Reject</button>
               </div>
               <div className="srvdetails teal">
-                Tashi <span> Mentor Approval</span>
+                <div className="username">Tashi</div>
+                <span> Pending</span> <button>Accept</button>
+                <button>Reject</button>
               </div>
               <div className="srvdetails orange">
-                Thinley <span> Admin Approval</span>
+                <div className="username">Tashi</div>
+                <span> Pending</span> <button>Accept</button>
+                <button>Reject</button>
               </div>
               <div className="srvdetails purple">
-                Leans <span> Admin Approval</span>
+                <div className="username">Tashi</div>
+                <span> Pending</span> <button>Accept</button>
+                <button>Reject</button>
               </div>
             </div>
 
@@ -127,51 +135,33 @@ const AdminHome = () => {
 
           <div className="subcharts">
             <div className="inchartcont">
-              <div className="stitle">Cost as per grouping</div>
+              <div className="stitle">Dashboard Counts</div>
               <div className="sdesc2">Group by environment</div>
 
               <div className="inchart sbx1">
                 <div className="intitle">
                   <div className="incost">
-                    <span>273.00</span>
+                    <span>Users</span>
                   </div>
-                  <div>SBX</div>
+                  <div>220</div>
                 </div>
               </div>
 
               <div className="inchart sbx2">
                 <div className="intitle">
                   <div className="incost">
-                    <span>245.00</span>
+                    <span>Something Count</span>
                   </div>
-                  <div>UAT</div>
+                  <div>440</div>
                 </div>
               </div>
 
               <div className="inchart sbx3">
                 <div className="intitle">
                   <div className="incost">
-                    <span>347.00</span>
+                    <span>Another</span>
                   </div>
-                  <div>STAGE</div>
-                </div>
-              </div>
-
-              <div className="inchart sbx4">
-                <div className="intitle">
-                  <div className="incost">
-                    <span>135.00</span>
-                  </div>
-                  <div>Prod</div>
-                </div>
-              </div>
-
-              <div className="inchart sbx5">
-                <div className="intitle">
-                  <div className="incost">
-                    <span>103.00</span>
-                  </div>
-                  <div>SBX2</div>
+                  <div>990</div>
                 </div>
               </div>
             </div>
