@@ -11,6 +11,7 @@ const signToken = (id) => {
 
 const registerUser = async (req, res) => {
   try {
+    console.log("request body ", req.body);
     const user = await userModel.create(req.body);
     console.log(req.body);
     res.status(201).json({
