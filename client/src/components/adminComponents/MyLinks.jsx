@@ -5,12 +5,12 @@ export const links = [
     sublinks: [
       {
         sublink: [
-          { name: "Vision", link: "/about" },
-          { name: "Mission", link: "/about" },
-          { name: "Policy & Regulatory", link: "/about" },
-          { name: "Framework", link: "/about" },
-          { name: "Mandates", link: "/about" },
-          { name: "DoEE, EPD", link: "/about" },
+          { name: "Vision", link: "/admin/about" },
+          { name: "Mission", link: "/admin/about" },
+          { name: "Policy & Regulatory", link: "/admin/about" },
+          { name: "Framework", link: "/admin/about" },
+          { name: "Mandates", link: "/admin/about" },
+          { name: "DoEE, EPD", link: "/admin/about" },
         ],
       },
     ],
