@@ -1,17 +1,31 @@
 import React, { useEffect, useRef } from "react";
 import Navbar from "../components/Navbar";
+import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
-import Testimonial from "../components/Testimonial";
 
-const Testimonials = () => {
+import img1 from "./../assets/svg/undraw_online_learning_re_qw08.svg";
+import img2 from "./../assets/svg/undraw_data_trends_re_2cdy.svg";
+import img3 from "./../assets/svg/undraw_my_universe_803e.svg";
+
+const Home = () => {
   const section1Ref = useRef(null);
+  const section2Ref = useRef(null);
+  const section3Ref = useRef(null);
 
   useEffect(() => {
     const observer1 = createObserver(section1Ref);
+    const observer2 = createObserver(section2Ref, 2);
+    const observer3 = createObserver(section3Ref);
 
     return () => {
       if (observer1 && observer1.unobserve && section1Ref.current) {
         observer1.unobserve(section1Ref.current);
+      }
+      if (observer2 && observer2.unobserve && section2Ref.current) {
+        observer2.unobserve(section2Ref.current);
+      }
+      if (observer3 && observer3.unobserve && section3Ref.current) {
+        observer3.unobserve(section3Ref.current);
       }
     };
   }, []);
@@ -43,21 +57,7 @@ const Testimonials = () => {
       {/* Hero Banner */}
       <div className="flex items-center justify-end w-screen h-screen heroBanner bg-[url('./assets/heroBanner.png')] bg-cover bg-no-repeat text-white	">
         <div className="text-center mr-auto lg:ml-40 md:ml-20 ml-10">
-          <div className="text-7xl animate-bottom">
-            What People Say About Us
-          </div>
-        </div>
-      </div>
-
-      {/* Section */}
-      <div className="flex items-center justify-end w-screen h-screen heroBanner bg-black bg-cover bg-no-repeat text-white">
-        <div className="text-center mr-auto lg:ml-40 ml-auto leading-loose relative">
-          <div
-            ref={section1Ref}
-            className="w-full md:text-7xl text-5xl leading-loose sectionTitleLeft z-30 text-left flex"
-          >
-            <Testimonial />
-          </div>
+          <div className="text-7xl animate-bottom">Startup!</div>
         </div>
       </div>
 
@@ -67,4 +67,4 @@ const Testimonials = () => {
   );
 };
 
-export default Testimonials;
+export default Home;
