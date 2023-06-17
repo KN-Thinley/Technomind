@@ -49,14 +49,19 @@ const incubationSchema = new mongoose.Schema({
     type: Number,
     require: true,
   },
-
-  additionalQualification: {
-    institution: { type: String, require: true },
-    training: { type: String, require: true },
-    duration: { type: String, require: true },
-  },
-  proposedBusinessInfo: {
+  institution: {
     type: String,
+    require: true,
+  },
+
+  training: {
+    type: String,
+    require: true,
+  },
+
+  duration: {
+    type: String,
+    require: true,
   },
   briefDesp: {
     type: String,
