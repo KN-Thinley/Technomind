@@ -57,7 +57,6 @@ const incubationSchema = new mongoose.Schema({
   },
   proposedBusinessInfo: {
     type: String,
-    require: true,
   },
   briefDesp: {
     type: String,

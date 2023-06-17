@@ -3,10 +3,10 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const initialValues = {
-  briefDescription: "",
+  briefDesp: "",
   supportRequirement: "",
-  technologyUsed: "",
-  businessLocation: "",
+  technology: "",
+  locationAfterGrad: "",
   spaceRequirement: "",
 };
 
@@ -66,11 +66,11 @@ const ProInfo = () => {
     }
 
     if (!values.technologyUsed) {
-      errors.technologyUsed = "Technology Used is required";
+      errors.technology = "Technology Used is required";
     }
 
     if (!values.businessLocation) {
-      errors.businessLocation = "Business Location is required";
+      errors.locationAfterGrad = "Business Location is required";
     }
 
     if (!values.spaceRequirement) {
@@ -80,21 +80,27 @@ const ProInfo = () => {
     return errors;
   };
 
-  const saveDataToDatabase = (formValue1, formValue2) => {
+  const saveDataToDatabase = (formValue1, formValue2, formValues) => {
     // construct the data payload
     const data = {
-      fullname: formValue1.fullname,
+      name: formValue1.name,
       gender: formValue1.gender,
       dateOfBirth: formValue1.dateOfBirth,
-      cidNo: formValue1.cidNo,
+      cid: formValue1.cid,
       academicQualification: formValue1.academicQualification,
       currentAddress: formValue1.currentAddress,
       email: formValue1.email,
       phoneNo: formValue1.phoneNo,
-
-      institutionName: formValue2.institutionName,
-      training: formValue2.training,
-      duration: formValue2.duration,
+      additionalQualifications: {
+        institution: formValue2.institution,
+        training: formValue2.training,
+        duration: formValue2.duration,
+      },
+      briefDesp: formValues.briefDesp,
+      supportRequirement: formValues.supportRequirement,
+      technology: formValues.technology,
+      locationAfterGrad: formValues.locationAfterGrad,
+      spaceRequirement: formValues.spaceRequirement,
     };
 
     // make the api request to the backend server
@@ -129,14 +135,14 @@ const ProInfo = () => {
             {/* Brief Description */}
             <div className="briefDescription flex flex-col">
               <textarea
-                name="briefDescription"
+                name="briefDesp"
                 placeholder="Brief Description of Business Idea"
                 className="input-field font-sans px-4 py-2 border border-gray-300 rounded-md"
-                value={formValues.briefDescription}
+                value={formValues.briefDesp}
                 onChange={handleChange}
               />
               <small className="font-sans text-red-500">
-                {formErrors.briefDescription}
+                {formErrors.briefDesp}
               </small>
             </div>
 
@@ -157,28 +163,28 @@ const ProInfo = () => {
             {/* Technology Used */}
             <div className="technologyUsed flex flex-col">
               <textarea
-                name="technologyUsed"
+                name="technology"
                 placeholder="Technology to be Used"
                 className="input-field font-sans px-4 py-2 border border-gray-300 rounded-md"
-                value={formValues.technologyUsed}
+                value={formValues.technology}
                 onChange={handleChange}
               />
               <small className="font-sans text-red-500">
-                {formErrors.technologyUsed}
+                {formErrors.technology}
               </small>
             </div>
 
             {/* Business Location */}
             <div className="businessLocation flex flex-col">
               <textarea
-                name="businessLocation"
+                name="locationAfterGrad"
                 placeholder="Business Location After Graduation"
                 className="input-field font-sans px-4 py-2 border border-gray-300 rounded-md"
-                value={formValues.businessLocation}
+                value={formValues.locationAfterGrad}
                 onChange={handleChange}
               />
               <small className="font-sans text-red-500">
-                {formErrors.businessLocation}
+                {formErrors.locationAfterGrad}
               </small>
             </div>
 

@@ -5,11 +5,11 @@ const initialValues = {
   name: "",
   gender: "",
   dateOfBirth: "",
-  cid: 0,
+  cid: null,
   academicQualification: "",
   currentAddress: "",
   email: "",
-  phoneNo: 0,
+  phoneNo: null,
 };
 
 const AppliForm = () => {
@@ -25,20 +25,16 @@ const AppliForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     setFormErrors(validate(formValues));
     setIsSubmit(true);
-
-    if (Object.keys(formErrors).length === 0) {
-      sessionStorage.setItem("formValues", JSON.stringify(formValues));
-      navigate("/services/incubation/additional");
-    }
   };
 
   const validate = (values) => {
     const errors = {};
     // Add validations for the fields
-    if (!values.fullname) {
-      errors.fullname = "Fullname is required";
+    if (!values.name) {
+      errors.name = "Fullname is required";
     }
     if (!values.gender) {
       errors.gender = "Gender is required";
@@ -46,8 +42,8 @@ const AppliForm = () => {
     if (!values.dateOfBirth) {
       errors.dateOfBirth = "Date of Birth is required";
     }
-    if (!values.cidNo) {
-      errors.cidNo = "CID No is required";
+    if (!values.cid) {
+      errors.cid = "CID No is required";
     }
     if (!values.academicQualification) {
       errors.academicQualification = "Academic Qualification is required";
@@ -178,7 +174,7 @@ const AppliForm = () => {
           <div className="phone-no flex flex-col border-2 border-black-800 p-2">
             <input
               name="phoneNo"
-              type="text"
+              type="Number"
               placeholder="Phone No"
               className="input-field font-sans px-4 py-2  rounded-md"
               value={formValues.phoneNo}
